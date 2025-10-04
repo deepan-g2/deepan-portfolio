@@ -15,43 +15,71 @@ const Career = () => {
           <div className="career-info-box">
             <div className="career-info-in">
               <div className="career-role">
-                <h4>Position In Company</h4>
-                <h5>Company Name</h5>
+                <h4>Software Developer</h4>
+                <h5>DXC Technology</h5>
               </div>
-              <h3>20XX</h3>
+              <h3>2015</h3>
             </div>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim
-              labore sit non ipsum temporibus quidem, deserunt eaque officiis
-              mollitia ratione suscipit repellat.
+              Started my journey as a Software Developer at DXC Technology, working on
+              enterprise-level applications and gaining expertise in full-stack development.
+              Built strong foundations in software engineering principles and best practices.
             </p>
           </div>
           <div className="career-info-box">
             <div className="career-info-in">
               <div className="career-role">
-                <h4>Position In Company</h4>
-                <h5>Company Name</h5>
+                <h4>Ruby on Rails Developer</h4>
+                <h5>myBataz</h5>
               </div>
-              <h3>20XX</h3>
+              <h3>2018</h3>
             </div>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim
-              labore sit non ipsum temporibus quidem, deserunt eaque officiis
-              mollitia ratione suscipit repellat.
+              Transitioned to Ruby on Rails development at myBataz, progressing to Lead Backend Developer.
+              Focused on e-commerce platform development, PostgreSQL optimization, and Redis implementation
+              for enhanced performance and scalability.
             </p>
           </div>
           <div className="career-info-box">
             <div className="career-info-in">
               <div className="career-role">
-                <h4>Position In Company</h4>
-                <h5>Company Name</h5>
+                <h4>Senior Backend Developer</h4>
+                <h5>MEDICI</h5>
+              </div>
+              <h3>2019</h3>
+            </div>
+            <p>
+              Advanced to Senior Backend Developer at MEDICI, specializing in Ruby on Rails,
+              MySQL, and AWS services including S3 and CloudWatch. Enhanced technical discussions
+              and communication skills while building robust backend systems.
+            </p>
+          </div>
+          <div className="career-info-box">
+            <div className="career-info-in">
+              <div className="career-role">
+                <h4>Associate Software Architect</h4>
+                <h5>Rently</h5>
+              </div>
+              <h3>2021</h3>
+            </div>
+            <p>
+              Progressed through multiple roles at Rently from Associate Technical Lead to
+              Associate Software Architect. Led technical discussions, implemented Kafka-based
+              microservices, and drove architectural decisions for scalable rental platform solutions.
+            </p>
+          </div>
+          <div className="career-info-box">
+            <div className="career-info-in">
+              <div className="career-role">
+                <h4>Staff Engineer</h4>
+                <h5>G2</h5>
               </div>
               <h3>NOW</h3>
             </div>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim
-              labore sit non ipsum temporibus quidem, deserunt eaque officiis
-              mollitia ratione suscipit repellat.
+              Currently serving as Staff Engineer at G2, responsible for building scalable,
+              data-driven solutions using Ruby on Rails and AWS. Focus on technical leadership,
+              system architecture decisions, and mentoring engineering teams in microservices expertise.
             </p>
           </div>
         </div>

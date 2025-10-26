@@ -131,12 +131,19 @@ const TechStack = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrollY = window.scrollY || document.documentElement.scrollTop;
-      const threshold = document
-        .getElementById("work")!
-        .getBoundingClientRect().top;
-      setIsActive(scrollY > threshold);
+      const techstackSection = document.querySelector(".techstack");
+      if (!techstackSection) return;
+
+      const rect = techstackSection.getBoundingClientRect();
+      const windowHeight = window.innerHeight;
+
+      // Activate when techstack section is in viewport (not before)
+      setIsActive(rect.top < windowHeight && rect.bottom > 0);
     };
+
+    // Initial check
+    handleScroll();
+
     document.querySelectorAll(".header a").forEach((elem) => {
       const element = elem as HTMLAnchorElement;
       element.addEventListener("click", () => {
@@ -169,7 +176,7 @@ const TechStack = () => {
   }, []);
 
   return (
-    <div className="techstack">
+    <div className={`techstack ${isActive ? "techstack-active" : ""}`}>
       <h2> My Techstack</h2>
 
       <Canvas

@@ -2,11 +2,16 @@ import "./styles/Work.css";
 import WorkImage from "./WorkImage";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 import { useGSAP } from "@gsap/react";
+import { MdArrowBackIos, MdArrowForwardIos } from "react-icons/md";
+import { useRef } from "react";
 
-gsap.registerPlugin(useGSAP);
+gsap.registerPlugin(useGSAP, ScrollToPlugin);
 
 const Work = () => {
+  const timelineRef = useRef<gsap.core.Timeline | null>(null);
+
   useGSAP(() => {
     let translateX: number = 0;
     function setTranslateX() {
@@ -40,9 +45,61 @@ const Work = () => {
       duration: 40,
       delay: 0.2,
     });
+
+    timelineRef.current = timeline;
   }, []);
+
+  const handleCarouselClick = (direction: "left" | "right") => {
+    const scrollTrigger = ScrollTrigger.getById("work");
+    if (!scrollTrigger) return;
+
+    // Much smaller scroll amount for subtle movement
+    const scrollAmount = direction === "left" ? -50 : 50;
+    const currentScroll = window.scrollY || document.documentElement.scrollTop;
+    let targetScroll = currentScroll + scrollAmount;
+
+    // Clamp scroll position to valid ScrollTrigger range
+    const minScroll = scrollTrigger.start;
+    const maxScroll = scrollTrigger.end;
+
+    // Ensure we stay within bounds
+    if (targetScroll < minScroll) {
+      targetScroll = minScroll;
+    } else if (targetScroll > maxScroll) {
+      targetScroll = maxScroll;
+    }
+
+    // Smooth scroll animation
+    gsap.to(window, {
+      scrollTo: {
+        y: targetScroll,
+        autoKill: false,
+      },
+      duration: 0.4,
+      ease: "power2.out",
+      overwrite: "auto",
+    });
+  };
   return (
     <div className="work-section" id="work">
+      <button
+        className="carousel-arrow carousel-arrow-left work-arrow-left"
+        onClick={() => handleCarouselClick("left")}
+        aria-label="Previous achievement"
+        data-cursor="disable"
+      >
+        <MdArrowBackIos />
+      </button>
+
+      <button
+        className="carousel-arrow carousel-arrow-right work-arrow-right"
+        onClick={() => handleCarouselClick("right")}
+        aria-label="Next achievement"
+        data-cursor="disable"
+      >
+        <MdArrowForwardIos />
+      </button>
+
       <div className="work-container section-container">
         <h2>
           Awards & <span>Achievements</span>

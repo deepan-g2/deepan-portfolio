@@ -1,0 +1,17 @@
+# robots.txt for Deepan Kumar Portfolio
+# https://deepankumar.dev
+
+# Allow all crawlers to access all content
+User-agent: *
+Allow: /
+
+# Disallow crawling of specific directories (if any)
+Disallow: /src/
+Disallow: /*.json$
+Disallow: /*.enc$
+
+# Sitemap location
+Sitemap: https://deepankumar.dev/sitemap.xml
+
+# Crawl-delay (optional - uncomment if needed)
+# Crawl-delay: 10

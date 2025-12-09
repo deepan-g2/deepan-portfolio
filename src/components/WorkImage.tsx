@@ -6,6 +6,7 @@ interface Props {
   alt?: string;
   video?: string;
   link?: string;
+  onClick?: () => void;
 }
 
 const WorkImage = (props: Props) => {
@@ -21,24 +22,48 @@ const WorkImage = (props: Props) => {
     }
   };
 
+  const content = (
+    <>
+      {props.link && (
+        <div className="work-link">
+          <MdArrowOutward />
+        </div>
+      )}
+      <img src={props.image} alt={props.alt} />
+      {isVideo && <video src={video} autoPlay muted playsInline loop></video>}
+    </>
+  );
+
   return (
     <div className="work-image">
-      <a
-        className="work-image-in"
-        href={props.link}
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={() => setIsVideo(false)}
-        target="_blank"
-        data-cursor={"disable"}
-      >
-        {props.link && (
-          <div className="work-link">
-            <MdArrowOutward />
-          </div>
-        )}
-        <img src={props.image} alt={props.alt} />
-        {isVideo && <video src={video} autoPlay muted playsInline loop></video>}
-      </a>
+      {props.link ? (
+        <a
+          className="work-image-in"
+          href={props.link}
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={() => setIsVideo(false)}
+          target="_blank"
+          data-cursor={"disable"}
+        >
+          {content}
+        </a>
+      ) : (
+        <div
+          className="work-image-in"
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={() => setIsVideo(false)}
+          onClick={(e) => {
+            console.log("Image clicked!");
+            e.stopPropagation();
+            if (props.onClick) {
+              props.onClick();
+            }
+          }}
+          style={{ cursor: props.onClick ? 'pointer' : 'default', pointerEvents: 'auto' }}
+        >
+          {content}
+        </div>
+      )}
     </div>
   );
 };

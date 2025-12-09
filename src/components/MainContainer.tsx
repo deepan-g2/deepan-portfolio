@@ -8,6 +8,8 @@ import Navbar from "./Navbar";
 import SocialIcons from "./SocialIcons";
 import WhatIDo from "./WhatIDo";
 import Work from "./Work";
+import Blog from "./Blog";
+import ScrollProgress from "./ScrollProgress";
 import setSplitText from "./utils/splitText";
 
 const TechStack = lazy(() => import("./TechStack"));
@@ -31,6 +33,7 @@ const MainContainer = ({ children }: PropsWithChildren) => {
 
   return (
     <div className="container-main">
+      <ScrollProgress />
       <Cursor />
       <Navbar />
       <SocialIcons />
@@ -48,6 +51,7 @@ const MainContainer = ({ children }: PropsWithChildren) => {
                 <TechStack />
               </Suspense>
             )}
+            <Blog />
             <Contact />
           </div>
         </div>

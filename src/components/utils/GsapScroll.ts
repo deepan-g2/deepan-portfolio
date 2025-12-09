@@ -188,4 +188,75 @@ export function setAllTimeline() {
       0
     );
   }
+
+  // Work Section Fade-In Transition
+  gsap.fromTo(
+    ".work-section",
+    { opacity: 0, y: 50 },
+    {
+      opacity: 1,
+      y: 0,
+      duration: 1,
+      scrollTrigger: {
+        trigger: ".work-section",
+        start: "top 80%",
+        end: "top 50%",
+        scrub: 1,
+        invalidateOnRefresh: true,
+      },
+    }
+  );
+
+  // TechStack Section Fade-In Transition
+  gsap.fromTo(
+    ".techstack",
+    { opacity: 0, y: 50 },
+    {
+      opacity: 1,
+      y: 0,
+      duration: 1,
+      scrollTrigger: {
+        trigger: ".techstack",
+        start: "top 80%",
+        end: "top 50%",
+        scrub: 1,
+        invalidateOnRefresh: true,
+      },
+    }
+  );
+
+  // Contact Section Fade-In Transition
+  gsap.fromTo(
+    ".contact-section",
+    { opacity: 0, y: 50 },
+    {
+      opacity: 1,
+      y: 0,
+      duration: 1,
+      scrollTrigger: {
+        trigger: ".contact-section",
+        start: "top 80%",
+        end: "top 50%",
+        scrub: 1,
+        invalidateOnRefresh: true,
+      },
+    }
+  );
+
+  // Contact Form Stagger Animation
+  gsap.fromTo(
+    ".form-group",
+    { opacity: 0, x: -30 },
+    {
+      opacity: 1,
+      x: 0,
+      stagger: 0.1,
+      duration: 0.8,
+      scrollTrigger: {
+        trigger: ".contact-form",
+        start: "top 80%",
+        toggleActions: "play none none reverse",
+      },
+    }
+  );
 }

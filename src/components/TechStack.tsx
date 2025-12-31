@@ -176,8 +176,8 @@ const TechStack = () => {
   }, []);
 
   return (
-    <div className={`techstack ${isActive ? "techstack-active" : ""}`}>
-      <h2> My Techstack</h2>
+    <div className={`techstack ${isActive ? "techstack-active" : ""}`} id="tech-stack">
+      <h1> Deepan Kumar's Tech Stack</h1>
 
       <Canvas
         shadows

@@ -9,6 +9,7 @@ interface Article {
   description: string;
   thumbnail?: string;
   categories: string[];
+  rawPubDate?: string;
 }
 
 const Blog = () => {
@@ -42,6 +43,7 @@ const Blog = () => {
           return {
             title: item.title,
             link: item.link,
+            rawPubDate: item.pubDate,
             pubDate: new Date(item.pubDate).toLocaleDateString("en-US", {
               year: "numeric",
               month: "short",
@@ -61,14 +63,58 @@ const Blog = () => {
     }
   };
 
+  // Generate structured data for articles
+  const generateBlogPostSchema = () => {
+    const blogPosts = articles.map((article) => ({
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": article.title,
+      "description": article.description,
+      "image": article.thumbnail || "https://www.deepankumar.com/images/logo.png",
+      "author": {
+        "@type": "Person",
+        "name": "Deepan Kumar",
+        "url": "https://www.deepankumar.com",
+        "jobTitle": "Staff Engineer",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "G2"
+        }
+      },
+      "publisher": {
+        "@type": "Person",
+        "name": "Deepan Kumar",
+        "url": "https://www.deepankumar.com"
+      },
+      "datePublished": article.rawPubDate,
+      "url": article.link,
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": article.link
+      },
+      "keywords": article.categories.join(", ")
+    }));
+
+    return JSON.stringify(blogPosts);
+  };
+
   return (
     <div className="blog-section section-container" id="blog">
+      {/* Structured Data for Blog Articles */}
+      {!loading && articles.length > 0 && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: generateBlogPostSchema() }}
+        />
+      )}
+
       <div className="blog-container">
-        <h2>
-          Latest <span>Articles</span>
-        </h2>
+        <h1>
+          Latest <span>Articles by Deepan Kumar</span>
+        </h1>
         <p className="blog-subtitle">
-          Thoughts on software engineering, AI, and building scalable systems
+          Insights on software engineering, AI, system architecture, Ruby on Rails, React, and building
+          scalable distributed systems. Practical guides and lessons from 10+ years of engineering.
         </p>
 
         {loading ? (
@@ -87,14 +133,20 @@ const Blog = () => {
                 <div className={`blog-image ${!article.thumbnail ? 'blog-image-placeholder' : ''}`}>
                   {article.thumbnail ? (
                     <>
-                      <img src={article.thumbnail} alt={article.title} />
+                      <img
+                        src={article.thumbnail}
+                        alt={`${article.title} - Article by Deepan Kumar on ${article.categories[0] || 'Software Engineering'}`}
+                        loading="lazy"
+                        width="400"
+                        height="250"
+                      />
                       <div className="blog-overlay">
                         <MdArrowOutward />
                       </div>
                     </>
                   ) : (
                     <div className="blog-placeholder-gradient">
-                      <div className="blog-placeholder-icon">📝</div>
+                      <div className="blog-placeholder-icon" role="img" aria-label="Blog article placeholder">📝</div>
                     </div>
                   )}
                 </div>

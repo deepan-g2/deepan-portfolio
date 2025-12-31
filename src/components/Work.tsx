@@ -15,7 +15,7 @@ const achievements = [
     company: "G2 - 2024",
     description: "Recognized for outstanding professional contributions, team collaboration, and technical leadership excellence at G2",
     image: "/images/mvp.jpeg",
-    alt: "Most Valuable Professional Award"
+    alt: "Deepan Kumar receiving Most Valuable Professional Award at G2 2024"
   },
   {
     id: "02",
@@ -23,7 +23,7 @@ const achievements = [
     company: "RubyConfIndia2025 Speaker",
     description: "Delivered keynote on how applications can actively adapt, recover and heal themselves during runtime using AI",
     image: "/images/conf.jpeg",
-    alt: "RubyConf India Speaker"
+    alt: "Deepan Kumar speaking at RubyConf India 2025 on AI at Runtime"
   },
   {
     id: "03",
@@ -31,7 +31,7 @@ const achievements = [
     company: "G2 Hackathon FY25",
     description: "Achieved 3rd place in company-wide hackathon, collaborating with brilliant minds to tackle challenging technical problems",
     image: "/images/jarvis.jpeg",
-    alt: "G2 Hackathon Winner"
+    alt: "Deepan Kumar team winning 3rd place at G2 Hackathon FY25"
   },
   {
     id: "04",
@@ -39,7 +39,7 @@ const achievements = [
     company: "RubyConfIndia2025 Panelist",
     description: "Participated in expert panel discussion sharing insights about AI's role and impact on software engineering",
     image: "/images/panel.jpeg",
-    alt: "AI Panel Discussion"
+    alt: "Deepan Kumar participating in AI and Engineering panel at RubyConf India 2025"
   },
   {
     id: "05",
@@ -47,7 +47,7 @@ const achievements = [
     company: "Cross-Company Recognition",
     description: "Now available on Topmate for Rails guidance, app scaling consultation, and tech career mentorship",
     image: "/images/placeholder.webp",
-    alt: "Technical Mentorship"
+    alt: "Deepan Kumar technical mentorship and career guidance services"
   },
   {
     id: "06",
@@ -55,7 +55,7 @@ const achievements = [
     company: "G2 - Current Role",
     description: "Promoted to Staff Engineer for building scalable, data-driven solutions and technical leadership in microservices",
     image: "/images/placeholder.webp",
-    alt: "Staff Engineer Role"
+    alt: "Deepan Kumar as Staff Engineer at G2"
   }
 ];
 
@@ -102,9 +102,9 @@ const Work = () => {
     <>
       <div className="work-section" id="work">
         <div className="work-container section-container">
-          <h2>
-            Awards & <span>Achievements</span>
-          </h2>
+          <h1>
+            Deepan Kumar's Awards & <span>Achievements</span>
+          </h1>
 
           <div className="carousel-scene">
             <div className="carousel-3d" ref={carouselRef}>

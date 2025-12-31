@@ -25,7 +25,7 @@ const WhatIDo = () => {
     };
   }, []);
   return (
-    <div className="whatIDO">
+    <div className="whatIDO" id="what-i-do">
       <div className="what-box">
         <h2 className="title">
           W<span className="hat-h2">HAT</span>
@@ -96,16 +96,11 @@ const WhatIDo = () => {
               </p>
               <h5>Skillset & tools</h5>
               <div className="what-content-flex">
-                <div className="what-tags">JavaScript</div>
-                <div className="what-tags">TypeScript</div>
-                <div className="what-tags">React</div>
-                <div className="what-tags">Node.js</div>
-                <div className="what-tags">Java</div>
+                <div className="what-tags">Ruby</div>
+                <div className="what-tags">Rails</div>
+                <div className="what-tags">Javascript</div>
                 <div className="what-tags">Python</div>
-                <div className="what-tags">Express.js</div>
-                <div className="what-tags">MongoDB</div>
                 <div className="what-tags">MySQL</div>
-                <div className="what-tags">Next.js</div>
               </div>
               <div className="what-arrow"></div>
             </div>
@@ -139,13 +134,8 @@ const WhatIDo = () => {
               <h5>Skillset & tools</h5>
               <div className="what-content-flex">
                 <div className="what-tags">AWS</div>
-                <div className="what-tags">Docker</div>
                 <div className="what-tags">System Design</div>
                 <div className="what-tags">Microservices</div>
-                <div className="what-tags">REST APIs</div>
-                <div className="what-tags">CI/CD</div>
-                <div className="what-tags">Git</div>
-                <div className="what-tags">Database Design</div>
               </div>
               <div className="what-arrow"></div>
             </div>

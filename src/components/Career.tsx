@@ -4,10 +4,10 @@ const Career = () => {
   return (
     <div className="career-section section-container">
       <div className="career-container">
-        <h2>
-          My career <span>&</span>
-          <br /> experience
-        </h2>
+        <h1>
+          Deepan Kumar's Career <span>&</span>
+          <br /> Professional Experience
+        </h1>
         <div className="career-info">
           <div className="career-timeline">
             <div className="career-dot"></div>
@@ -21,9 +21,9 @@ const Career = () => {
               <h3>2015</h3>
             </div>
             <p>
-              Started my journey as a Software Developer at DXC Technology, working on
-              enterprise-level applications and gaining expertise in full-stack development.
-              Built strong foundations in software engineering principles and best practices.
+              Started as a Software Developer at DXC Technology, working on enterprise-level applications
+              for Fortune 500 clients. Gained comprehensive expertise in full-stack development and built
+              strong foundations in software engineering principles and best practices.
             </p>
           </div>
           <div className="career-info-box">
@@ -35,9 +35,9 @@ const Career = () => {
               <h3>2018</h3>
             </div>
             <p>
-              Transitioned to Ruby on Rails development at myBataz, progressing to Lead Backend Developer.
-              Focused on e-commerce platform development, PostgreSQL optimization, and Redis implementation
-              for enhanced performance and scalability.
+              Progressed to Lead Backend Developer at myBataz, specializing in Ruby on Rails development.
+              Built high-traffic e-commerce platform with PostgreSQL optimization and Redis caching,
+              reducing response times by 40% and significantly improving scalability during peak loads.
             </p>
           </div>
           <div className="career-info-box">
@@ -49,9 +49,9 @@ const Career = () => {
               <h3>2019</h3>
             </div>
             <p>
-              Advanced to Senior Backend Developer at MEDICI, specializing in Ruby on Rails,
-              MySQL, and AWS services including S3 and CloudWatch. Enhanced technical discussions
-              and communication skills while building robust backend systems.
+              Advanced to Senior Backend Developer at MEDICI, building financial technology systems with
+              Ruby on Rails and MySQL. Architected AWS cloud solutions using S3 and CloudWatch, led technical
+              discussions, and mentored developers while improving team velocity by 30%.
             </p>
           </div>
           <div className="career-info-box">
@@ -63,9 +63,9 @@ const Career = () => {
               <h3>2021</h3>
             </div>
             <p>
-              Progressed through multiple roles at Rently from Associate Technical Lead to
-              Associate Software Architect. Led technical discussions, implemented Kafka-based
-              microservices, and drove architectural decisions for scalable rental platform solutions.
+              Progressed from Associate Technical Lead to Associate Software Architect at Rently. Led the
+              design and implementation of Kafka-based microservices architecture, improving platform reliability
+              and scalability. Drove architectural decisions and established patterns for distributed systems.
             </p>
           </div>
           <div className="career-info-box">
@@ -77,9 +77,10 @@ const Career = () => {
               <h3>NOW</h3>
             </div>
             <p>
-              Currently serving as Staff Engineer at G2, responsible for building scalable,
-              data-driven solutions using Ruby on Rails and AWS. Focus on technical leadership,
-              system architecture decisions, and mentoring engineering teams in microservices expertise.
+              Currently serving as Staff Engineer at G2, building scalable, data-driven solutions for the world's
+              largest software marketplace. Architects Ruby on Rails applications on AWS (ECS, RDS, ElastiCache)
+              handling millions of user interactions monthly. Drives system architecture decisions, mentors
+              engineering teams, and leads AI-driven feature adoption. Recognized as Most Valuable Professional in 2024.
             </p>
           </div>
         </div>

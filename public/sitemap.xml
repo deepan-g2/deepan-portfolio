@@ -5,7 +5,7 @@
   <!-- Homepage -->
   <url>
     <loc>https://www.deepankumar.com/</loc>
-    <lastmod>2025-01-30</lastmod>
+    <lastmod>2025-12-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
@@ -17,7 +17,7 @@
   <!-- About Section -->
   <url>
     <loc>https://www.deepankumar.com/#about</loc>
-    <lastmod>2025-01-30</lastmod>
+    <lastmod>2025-12-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -25,7 +25,7 @@
   <!-- What I Do Section -->
   <url>
     <loc>https://www.deepankumar.com/#what-i-do</loc>
-    <lastmod>2025-01-30</lastmod>
+    <lastmod>2025-12-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -33,7 +33,7 @@
   <!-- Career Section -->
   <url>
     <loc>https://www.deepankumar.com/#career</loc>
-    <lastmod>2025-01-30</lastmod>
+    <lastmod>2025-12-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -41,7 +41,7 @@
   <!-- Achievements Section -->
   <url>
     <loc>https://www.deepankumar.com/#achievements</loc>
-    <lastmod>2025-01-30</lastmod>
+    <lastmod>2025-12-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -49,15 +49,23 @@
   <!-- Tech Stack Section -->
   <url>
     <loc>https://www.deepankumar.com/#tech-stack</loc>
-    <lastmod>2025-01-30</lastmod>
+    <lastmod>2025-12-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+  </url>
+
+  <!-- Blog Section -->
+  <url>
+    <loc>https://www.deepankumar.com/#blog</loc>
+    <lastmod>2025-12-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
   </url>
 
   <!-- Contact Section -->
   <url>
     <loc>https://www.deepankumar.com/#contact</loc>
-    <lastmod>2025-01-30</lastmod>
+    <lastmod>2025-12-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>

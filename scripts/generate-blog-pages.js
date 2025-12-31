@@ -270,8 +270,8 @@ const generateBlogPostHTML = (article, slug) => {
   </head>
   <body>
     <div class="blog-post-page">
-      <a href="/#blog" class="back-link">
-        ← Back to Blog
+      <a href="/" class="back-link">
+        ← Back to Main Page
       </a>
 
       <article class="blog-post-content">

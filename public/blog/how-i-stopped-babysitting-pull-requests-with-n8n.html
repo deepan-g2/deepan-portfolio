@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Primary Meta Tags -->
+    <title>How I Stopped Babysitting Pull Requests with n8n - Deepan Kumar's Blog</title>
+    <meta name="title" content="How I Stopped Babysitting Pull Requests with n8n - Deepan Kumar's Blog" />
+    <meta name="description" content="
+n8n &lt;&gt; PR monitorPull Requests are like house plants 🌱.
+Some thrive with attention.
+Some are left unattended until they wilt.
+And some just sit approved" />
+    <meta name="keywords" content="automation, n8n-workflow-automation, software-development, ai, n8n, Deepan Kumar, Software Engineering, Blog" />
+    <meta name="author" content="Deepan Kumar" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://www.deepankumar.com/blog/how-i-stopped-babysitting-pull-requests-with-n8n.html" />
+    <meta property="og:title" content="How I Stopped Babysitting Pull Requests with n8n" />
+    <meta property="og:description" content="
+n8n &lt;&gt; PR monitorPull Requests are like house plants 🌱.
+Some thrive with attention.
+Some are left unattended until they wilt.
+And some just sit approved" />
+    <meta property="og:image" content="https://cdn-images-1.medium.com/max/1024/1*bBrHFlGzeiQxxNaswcKYkA.png" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://www.deepankumar.com/blog/how-i-stopped-babysitting-pull-requests-with-n8n.html" />
+    <meta property="twitter:title" content="How I Stopped Babysitting Pull Requests with n8n" />
+    <meta property="twitter:description" content="
+n8n &lt;&gt; PR monitorPull Requests are like house plants 🌱.
+Some thrive with attention.
+Some are left unattended until they wilt.
+And some just sit approved" />
+    <meta property="twitter:image" content="https://cdn-images-1.medium.com/max/1024/1*bBrHFlGzeiQxxNaswcKYkA.png" />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.deepankumar.com/blog/how-i-stopped-babysitting-pull-requests-with-n8n.html" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/images/logo.png" />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "How I Stopped Babysitting Pull Requests with n8n",
+      "description": "
+n8n &lt;&gt; PR monitorPull Requests are like house plants 🌱.
+Some thrive with attention.
+Some are left unattended until they wilt.
+And some just sit approved",
+      "image": "https://cdn-images-1.medium.com/max/1024/1*bBrHFlGzeiQxxNaswcKYkA.png",
+      "author": {
+        "@type": "Person",
+        "name": "Deepan Kumar",
+        "url": "https://www.deepankumar.com",
+        "jobTitle": "Staff Engineer",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "G2"
+        }
+      },
+      "publisher": {
+        "@type": "Person",
+        "name": "Deepan Kumar"
+      },
+      "datePublished": "2025-09-22 13:30:08",
+      "url": "https://www.deepankumar.com/blog/how-i-stopped-babysitting-pull-requests-with-n8n.html",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://www.deepankumar.com/blog/how-i-stopped-babysitting-pull-requests-with-n8n.html"
+      },
+      "keywords": "automation, n8n-workflow-automation, software-development, ai, n8n"
+    }
+    </script>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+        background: #000;
+        color: #fff;
+        line-height: 1.6;
+        min-height: 100vh;
+      }
+
+      .blog-post-page {
+        padding: 80px 20px 40px;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .back-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        color: #fff;
+        text-decoration: none;
+        font-size: 1rem;
+        margin-bottom: 2rem;
+        padding: 8px 16px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 4px;
+        transition: all 0.3s ease;
+      }
+
+      .back-link:hover {
+        background: rgba(255, 255, 255, 0.1);
+        border-color: rgba(255, 255, 255, 0.4);
+      }
+
+      .blog-post-content {
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 12px;
+        padding: 40px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .blog-post-hero {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+        margin-bottom: 2rem;
+      }
+
+      .blog-post-meta {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        margin-bottom: 1.5rem;
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 0.9rem;
+        flex-wrap: wrap;
+      }
+
+      .blog-post-categories {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+
+      .category-tag {
+        padding: 4px 12px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 4px;
+        font-size: 0.85rem;
+      }
+
+      h1 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        line-height: 1.2;
+      }
+
+      .blog-post-author {
+        margin-bottom: 2rem;
+        padding-bottom: 2rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        color: rgba(255, 255, 255, 0.8);
+      }
+
+      .blog-post-body {
+        line-height: 1.8;
+        font-size: 1.1rem;
+      }
+
+      .blog-post-body h2 {
+        font-size: 1.8rem;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+      }
+
+      .blog-post-body h3 {
+        font-size: 1.4rem;
+        margin-top: 1.5rem;
+        margin-bottom: 0.8rem;
+      }
+
+      .blog-post-body p {
+        margin-bottom: 1.2rem;
+      }
+
+      .blog-post-body img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 8px;
+        margin: 2rem 0;
+      }
+
+      .blog-post-body a {
+        color: #4a9eff;
+        text-decoration: underline;
+      }
+
+      .blog-post-body a:hover {
+        color: #6bb3ff;
+      }
+
+      .blog-post-body pre,
+      .blog-post-body code {
+        background: rgba(0, 0, 0, 0.3);
+        padding: 2px 6px;
+        border-radius: 4px;
+        font-family: "Courier New", monospace;
+      }
+
+      .blog-post-body pre {
+        padding: 1rem;
+        overflow-x: auto;
+        margin: 1.5rem 0;
+      }
+
+      .blog-post-body ul,
+      .blog-post-body ol {
+        margin-left: 2rem;
+        margin-bottom: 1.2rem;
+      }
+
+      .blog-post-body li {
+        margin-bottom: 0.5rem;
+      }
+
+      .blog-post-body blockquote {
+        border-left: 4px solid rgba(255, 255, 255, 0.3);
+        padding-left: 1.5rem;
+        margin: 1.5rem 0;
+        font-style: italic;
+        color: rgba(255, 255, 255, 0.8);
+      }
+
+      .blog-post-footer {
+        margin-top: 3rem;
+        padding-top: 2rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .medium-link {
+        color: #4a9eff;
+        text-decoration: none;
+        font-weight: 600;
+      }
+
+      .medium-link:hover {
+        text-decoration: underline;
+      }
+
+      @media (max-width: 768px) {
+        .blog-post-page {
+          padding: 60px 15px 30px;
+        }
+
+        .blog-post-content {
+          padding: 20px;
+        }
+
+        h1 {
+          font-size: 1.8rem;
+        }
+
+        .blog-post-body {
+          font-size: 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="blog-post-page">
+      <a href="/#blog" class="back-link">
+        ← Back to Blog
+      </a>
+
+      <article class="blog-post-content">
+        <img src="https://cdn-images-1.medium.com/max/1024/1*bBrHFlGzeiQxxNaswcKYkA.png" alt="How I Stopped Babysitting Pull Requests with n8n - Article by Deepan Kumar" class="blog-post-hero" />
+
+        <div class="blog-post-meta">
+          <time datetime="2025-09-22 13:30:08">September 22, 2025</time>
+          
+          <div class="blog-post-categories">
+            <span class="category-tag">automation</span><span class="category-tag">n8n-workflow-automation</span><span class="category-tag">software-development</span><span class="category-tag">ai</span><span class="category-tag">n8n</span>
+          </div>
+          
+        </div>
+
+        <h1>How I Stopped Babysitting Pull Requests with n8n</h1>
+
+        <div class="blog-post-author">
+          <p>By Deepan Kumar</p>
+        </div>
+
+        <div class="blog-post-body">
+          
+<figure><img alt="" src="https://cdn-images-1.medium.com/max/1024/1*bBrHFlGzeiQxxNaswcKYkA.png"><figcaption>n8n &lt;&gt; PR monitor</figcaption></figure><p>Pull Requests are like house plants 🌱.</p>
+<p>Some thrive with attention.</p>
+<p>Some are left unattended until they wilt.</p>
+<p>And some just sit approved, waiting forever to be merged.</p>
+<p>That’s when I thought: <em>why not automate this babysitting?</em></p>
+<h3>The Spark</h3>
+<p>Our team spends way too much time bouncing between GitHub tabs, Slack reminders, and mental checklists just to figure out:</p>
+<ul>
+<li>Which PRs are still in review</li>
+<li>Which ones are approved but gathering dust</li>
+<li>Which ones are about to blow past our SLA 🚨</li>
+</ul>
+<p>I was already tinkering with <a href="https://n8n.io/"><strong>n8n</strong></a>, an open-source workflow automation tool and it clicked: this is a perfect fit.</p>
+<h3>First Steps</h3>
+<p>I started small:</p>
+<ul>
+<li>A cron job that triggers at 10 AM on weekdays</li>
+<li>Fetch open PRs from GitHub</li>
+<li>Print them out in console (yes, very glamorous 🙃)</li>
+</ul>
+<p>Not exactly life-changing, but it proved the concept.</p>
+<h3>Adding More Brains 🧠</h3>
+<p>Pretty soon, the “list PRs” version wasn’t enough. I began layering checks:</p>
+<ul>
+<li>
+<strong>Review state</strong> → How long has this been waiting?</li>
+<li>
+<strong>Approval status</strong> → Approved but not merged = red flag.</li>
+<li>
+<strong>SLA breach warnings</strong> → Shout loudly when deadlines are in danger.</li>
+</ul>
+<p>And instead of console logs, I wired it into team notifications (Slack, email, whatever the squad preferred). Suddenly, the workflow became less of a side project and more of a team tool.</p>
+<h3>Challenges (aka, Where the Fun Began)</h3>
+<p>Like every good automation story, the devil was in the details:</p>
+<ul>
+<li>
+<strong>GitHub node limitations</strong>: Sure, n8n has a GitHub node, but no native way to fetch PR comments. So I had to break out the <strong>HTTP Request node</strong> and wrestle directly with GitHub’s REST API. And — <em>Hello, pagination, my old friend.</em>
+</li>
+<li>
+<strong>Approvals without comments</strong>: Fun fact: some PRs get approved without a single comment. If I treated “comment = review,” those would slip through. So I had to explicitly check the <em>review status</em> instead.</li>
+<li>
+<strong>Bot noise</strong>: CI bots love leaving comments. “✅ Tests passed!” “❌ Lint failed!” If I counted those, it looked like bots were my most diligent reviewers 🤖. Had to filter them out to avoid false positives.</li>
+<li>
+<strong>Multiple PRs per teammate</strong>: One teammate with three open PRs? Needed loops to handle that gracefully.</li>
+<li>
+<strong>Readable outputs</strong>: Raw JSON dumps are great for debugging but terrible for morning Slack messages. I had to transform data into clean, human-friendly summaries.</li>
+</ul>
+<p>Each hiccup forced me to think less like a “workflow clicker” and more like a workflow <em>designer</em>.</p>
+<h3>Where It’s At Today</h3>
+<p>Now, every morning at 10 AM, my team gets a neat digest of:</p>
+<ul>
+<li>Who has open PRs</li>
+<li>Which PRs need reviews</li>
+<li>Which ones are approved but still hanging around</li>
+<li>Which ones are about to miss SLAs</li>
+</ul>
+<p>It’s not perfect, but it’s already saving us manual effort (and some arguments 😅).</p>
+<h3>What’s Next</h3>
+<p>I want to make it more plug-and-play so anyone can configure their own notification channel (Slack, email, Teams, etc.) and just drop it into their setup.</p>
+<h3>Here’s the sneak peak of current state</h3>
+<a href="https://medium.com/media/5907aed5ef14a3d50422106609bd9fec/href">https://medium.com/media/5907aed5ef14a3d50422106609bd9fec/href</a><h3>Final Thoughts</h3>
+<p>This wasn’t about “look what I built” but more like:</p>
+<p><em>Here’s something I tried, broke, fixed and iterated on. Maybe it sparks ideas for you too.</em></p>
+<p>Because at the end of the day, babysitting PRs manually is so last season. Let the bots do the boring work and let humans focus on reviews that matter.</p>
+<img src="https://medium.com/_/stat?event=post.clientViewed&amp;referrerSource=full_rss&amp;postId=979856d2bc9d" width="1" height="1" alt="">
+
+        </div>
+
+        <div class="blog-post-footer">
+          <p>
+            Read the full article on Medium:
+            <a href="https://medium.com/@deepan.ppgit/how-i-stopped-babysitting-pull-requests-with-n8n-979856d2bc9d?source=rss-80461a0c324d------2" target="_blank" rel="noopener noreferrer" class="medium-link">
+              View on Medium →
+            </a>
+          </p>
+        </div>
+      </article>
+    </div>
+  </body>
+</html>

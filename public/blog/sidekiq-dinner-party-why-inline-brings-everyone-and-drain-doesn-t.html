@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Primary Meta Tags -->
+    <title>️ Sidekiq Dinner Party: Why Inline Brings Everyone (and Drain Doesn’t) - Deepan Kumar's Blog</title>
+    <meta name="title" content="️ Sidekiq Dinner Party: Why Inline Brings Everyone (and Drain Doesn’t) - Deepan Kumar's Blog" />
+    <meta name="description" content="
+Sometimes in Rails, the tiniest change feels like pulling the fire alarm 🚨. One innocent update and suddenly every Sidekiq job in the city wants to party.
+pro" />
+    <meta name="keywords" content="software-development, ruby-on-rails, sidekiq, ruby, optimization, Deepan Kumar, Software Engineering, Blog" />
+    <meta name="author" content="Deepan Kumar" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://www.deepankumar.com/blog/sidekiq-dinner-party-why-inline-brings-everyone-and-drain-doesn-t.html" />
+    <meta property="og:title" content="️ Sidekiq Dinner Party: Why Inline Brings Everyone (and Drain Doesn’t)" />
+    <meta property="og:description" content="
+Sometimes in Rails, the tiniest change feels like pulling the fire alarm 🚨. One innocent update and suddenly every Sidekiq job in the city wants to party.
+pro" />
+    <meta property="og:image" content="https://cdn-images-1.medium.com/max/1024/1*r9tNWQtTLHCS-5y4RYUNNQ.png" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://www.deepankumar.com/blog/sidekiq-dinner-party-why-inline-brings-everyone-and-drain-doesn-t.html" />
+    <meta property="twitter:title" content="️ Sidekiq Dinner Party: Why Inline Brings Everyone (and Drain Doesn’t)" />
+    <meta property="twitter:description" content="
+Sometimes in Rails, the tiniest change feels like pulling the fire alarm 🚨. One innocent update and suddenly every Sidekiq job in the city wants to party.
+pro" />
+    <meta property="twitter:image" content="https://cdn-images-1.medium.com/max/1024/1*r9tNWQtTLHCS-5y4RYUNNQ.png" />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.deepankumar.com/blog/sidekiq-dinner-party-why-inline-brings-everyone-and-drain-doesn-t.html" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/images/logo.png" />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "️ Sidekiq Dinner Party: Why Inline Brings Everyone (and Drain Doesn’t)",
+      "description": "
+Sometimes in Rails, the tiniest change feels like pulling the fire alarm 🚨. One innocent update and suddenly every Sidekiq job in the city wants to party.
+pro",
+      "image": "https://cdn-images-1.medium.com/max/1024/1*r9tNWQtTLHCS-5y4RYUNNQ.png",
+      "author": {
+        "@type": "Person",
+        "name": "Deepan Kumar",
+        "url": "https://www.deepankumar.com",
+        "jobTitle": "Staff Engineer",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "G2"
+        }
+      },
+      "publisher": {
+        "@type": "Person",
+        "name": "Deepan Kumar"
+      },
+      "datePublished": "2025-09-26 14:15:27",
+      "url": "https://www.deepankumar.com/blog/sidekiq-dinner-party-why-inline-brings-everyone-and-drain-doesn-t.html",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://www.deepankumar.com/blog/sidekiq-dinner-party-why-inline-brings-everyone-and-drain-doesn-t.html"
+      },
+      "keywords": "software-development, ruby-on-rails, sidekiq, ruby, optimization"
+    }
+    </script>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+        background: #000;
+        color: #fff;
+        line-height: 1.6;
+        min-height: 100vh;
+      }
+
+      .blog-post-page {
+        padding: 80px 20px 40px;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .back-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        color: #fff;
+        text-decoration: none;
+        font-size: 1rem;
+        margin-bottom: 2rem;
+        padding: 8px 16px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 4px;
+        transition: all 0.3s ease;
+      }
+
+      .back-link:hover {
+        background: rgba(255, 255, 255, 0.1);
+        border-color: rgba(255, 255, 255, 0.4);
+      }
+
+      .blog-post-content {
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 12px;
+        padding: 40px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .blog-post-hero {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+        margin-bottom: 2rem;
+      }
+
+      .blog-post-meta {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        margin-bottom: 1.5rem;
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 0.9rem;
+        flex-wrap: wrap;
+      }
+
+      .blog-post-categories {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+
+      .category-tag {
+        padding: 4px 12px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 4px;
+        font-size: 0.85rem;
+      }
+
+      h1 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        line-height: 1.2;
+      }
+
+      .blog-post-author {
+        margin-bottom: 2rem;
+        padding-bottom: 2rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        color: rgba(255, 255, 255, 0.8);
+      }
+
+      .blog-post-body {
+        line-height: 1.8;
+        font-size: 1.1rem;
+      }
+
+      .blog-post-body h2 {
+        font-size: 1.8rem;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+      }
+
+      .blog-post-body h3 {
+        font-size: 1.4rem;
+        margin-top: 1.5rem;
+        margin-bottom: 0.8rem;
+      }
+
+      .blog-post-body p {
+        margin-bottom: 1.2rem;
+      }
+
+      .blog-post-body img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 8px;
+        margin: 2rem 0;
+      }
+
+      .blog-post-body a {
+        color: #4a9eff;
+        text-decoration: underline;
+      }
+
+      .blog-post-body a:hover {
+        color: #6bb3ff;
+      }
+
+      .blog-post-body pre,
+      .blog-post-body code {
+        background: rgba(0, 0, 0, 0.3);
+        padding: 2px 6px;
+        border-radius: 4px;
+        font-family: "Courier New", monospace;
+      }
+
+      .blog-post-body pre {
+        padding: 1rem;
+        overflow-x: auto;
+        margin: 1.5rem 0;
+      }
+
+      .blog-post-body ul,
+      .blog-post-body ol {
+        margin-left: 2rem;
+        margin-bottom: 1.2rem;
+      }
+
+      .blog-post-body li {
+        margin-bottom: 0.5rem;
+      }
+
+      .blog-post-body blockquote {
+        border-left: 4px solid rgba(255, 255, 255, 0.3);
+        padding-left: 1.5rem;
+        margin: 1.5rem 0;
+        font-style: italic;
+        color: rgba(255, 255, 255, 0.8);
+      }
+
+      .blog-post-footer {
+        margin-top: 3rem;
+        padding-top: 2rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .medium-link {
+        color: #4a9eff;
+        text-decoration: none;
+        font-weight: 600;
+      }
+
+      .medium-link:hover {
+        text-decoration: underline;
+      }
+
+      @media (max-width: 768px) {
+        .blog-post-page {
+          padding: 60px 15px 30px;
+        }
+
+        .blog-post-content {
+          padding: 20px;
+        }
+
+        h1 {
+          font-size: 1.8rem;
+        }
+
+        .blog-post-body {
+          font-size: 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="blog-post-page">
+      <a href="/#blog" class="back-link">
+        ← Back to Blog
+      </a>
+
+      <article class="blog-post-content">
+        <img src="https://cdn-images-1.medium.com/max/1024/1*r9tNWQtTLHCS-5y4RYUNNQ.png" alt="️ Sidekiq Dinner Party: Why Inline Brings Everyone (and Drain Doesn’t) - Article by Deepan Kumar" class="blog-post-hero" />
+
+        <div class="blog-post-meta">
+          <time datetime="2025-09-26 14:15:27">September 26, 2025</time>
+          
+          <div class="blog-post-categories">
+            <span class="category-tag">software-development</span><span class="category-tag">ruby-on-rails</span><span class="category-tag">sidekiq</span><span class="category-tag">ruby</span><span class="category-tag">optimization</span>
+          </div>
+          
+        </div>
+
+        <h1>️ Sidekiq Dinner Party: Why Inline Brings Everyone (and Drain Doesn’t)</h1>
+
+        <div class="blog-post-author">
+          <p>By Deepan Kumar</p>
+        </div>
+
+        <div class="blog-post-body">
+          
+<p>Sometimes in Rails, the tiniest change feels like pulling the fire alarm 🚨. One innocent update and suddenly every Sidekiq job in the city wants to party.</p>
+<pre>product.update(name: 'New Name')</pre>
+<p>Seems harmless, right? Just a tiny save.</p>
+<p>But in your Rails app, that update can trigger <strong>multiple Sidekiq jobs</strong> behind the scenes:</p>
+<ul>
+<li>Notify the team</li>
+<li>Update the search index</li>
+<li>Recalculate analytics</li>
+<li>…and maybe more</li>
+</ul>
+<p>Now you want to write a test. But here’s the catch: you <strong>only care about the result of one specific job</strong>. This is where <strong>Inline!</strong> and <strong>Drain</strong> behave very differently.</p>
+<figure><img alt="" src="https://cdn-images-1.medium.com/max/1024/1*r9tNWQtTLHCS-5y4RYUNNQ.png"><figcaption>Sidekiq Inline vs Drain</figcaption></figure><h3>Inline! — Runs Everything, Instantly 🏃‍♂️💨</h3>
+<pre>Sidekiq::Testing.inline! do<br>  product.update(name: 'New Name')<br>end</pre>
+<ul>
+<li>
+<em>product.update</em> runs</li>
+<li>All <em>after_update</em> callbacks fire</li>
+<li>Every job triggered by those callbacks runs <strong>immediately</strong>, including nested jobs</li>
+</ul>
+<p><strong>Output</strong>:</p>
+<pre>NotifyTeamWorker executed<br>SearchIndexWorker executed<br>MetricsWorker executed</pre>
+<p>Inline is like <strong>inviting everyone on the street to your party</strong>, because the actual guest you care about <strong>happens to live on that street</strong>.</p>
+<p>✅ Your job runs as expected</p>
+<p>❌ But you also get all the extra jobs running as side effects</p>
+<p>Inline itself isn’t “wrong.” It’s just <strong>too eager</strong> when your test needs <strong>focus</strong>.</p>
+<h3>Drain — Focus on What Matters 🎯</h3>
+<p>By default, in Rails tests, jobs are <strong>queued and do not run automatically</strong>. This allows you to pick exactly which job to test:</p>
+<pre>product.update(name: 'New Name')<br><br># Inspect jobs<br>expect(NotifyTeamWorker.jobs.size).to eq(1)<br>expect(SearchIndexWorker.jobs.size).to eq(1)<br>expect(MetricsWorker.jobs.size).to eq(1)<br><br># Only run the job you care about<br>SearchIndexWorker.drain</pre>
+<p><strong>Output</strong>:</p>
+<pre>SearchIndexWorker executed</pre>
+<p>Drain is like a <strong>careful party planner</strong>: all the invitees are on the list, but you let <strong>only the VIPs</strong> in — in this case, the job you actually care about.</p>
+<p>✅ More focused test</p>
+<p>✅ <strong>Reduces noise</strong> — you’re not dragged into testing side effects of unrelated jobs.</p>
+<p>✅ <strong>Faster RSpec runtime</strong> — because you’re not executing a whole chain of jobs that your test doesn’t care about.</p>
+<h3>Moral of the Story</h3>
+<ul>
+<li>
+<strong>Inline! isn’t inherently wrong</strong>, but it becomes problematic when your <strong>goal is to test a single job</strong>.</li>
+<li>
+<strong>Drain lets you focus</strong>, giving you control and avoiding side effects from other jobs triggered by the same action.</li>
+</ul>
+<p>Think of it like hosting a party:</p>
+<ul>
+<li>
+<strong>Inline:</strong> you invite everyone on the street because your actual guest lives there 🎉</li>
+<li>
+<strong>Drain:</strong> you invite only your actual guests🍹</li>
+</ul>
+<blockquote>So the next time your tests feel noisy, bloated, or slow — maybe it’s because you’ve been inviting the whole street when you just needed one guest.</blockquote>
+<img src="https://medium.com/_/stat?event=post.clientViewed&amp;referrerSource=full_rss&amp;postId=8310e64ee687" width="1" height="1" alt="">
+
+        </div>
+
+        <div class="blog-post-footer">
+          <p>
+            Read the full article on Medium:
+            <a href="https://medium.com/@deepan.ppgit/%EF%B8%8F-sidekiq-dinner-party-why-inline-brings-everyone-and-drain-doesnt-8310e64ee687?source=rss-80461a0c324d------2" target="_blank" rel="noopener noreferrer" class="medium-link">
+              View on Medium →
+            </a>
+          </p>
+        </div>
+      </article>
+    </div>
+  </body>
+</html>

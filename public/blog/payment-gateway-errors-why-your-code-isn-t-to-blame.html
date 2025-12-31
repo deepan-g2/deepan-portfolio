@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Primary Meta Tags -->
+    <title>Payment Gateway Errors: Why Your Code Isn’t to Blame - Deepan Kumar's Blog</title>
+    <meta name="title" content="Payment Gateway Errors: Why Your Code Isn’t to Blame - Deepan Kumar's Blog" />
+    <meta name="description" content="
+Everything was working fine. Which is exactly when the universe said, “Let’s make things interesting.”
+One of our customers’ payments suddenly failed — same ca" />
+    <meta name="keywords" content="software-development, payments, payment-gateway, ruby-on-rails, payment-processing, Deepan Kumar, Software Engineering, Blog" />
+    <meta name="author" content="Deepan Kumar" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://www.deepankumar.com/blog/payment-gateway-errors-why-your-code-isn-t-to-blame.html" />
+    <meta property="og:title" content="Payment Gateway Errors: Why Your Code Isn’t to Blame" />
+    <meta property="og:description" content="
+Everything was working fine. Which is exactly when the universe said, “Let’s make things interesting.”
+One of our customers’ payments suddenly failed — same ca" />
+    <meta property="og:image" content="https://cdn-images-1.medium.com/max/1024/1*_f4U2rtvGjOSqr6abQsSog.png" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://www.deepankumar.com/blog/payment-gateway-errors-why-your-code-isn-t-to-blame.html" />
+    <meta property="twitter:title" content="Payment Gateway Errors: Why Your Code Isn’t to Blame" />
+    <meta property="twitter:description" content="
+Everything was working fine. Which is exactly when the universe said, “Let’s make things interesting.”
+One of our customers’ payments suddenly failed — same ca" />
+    <meta property="twitter:image" content="https://cdn-images-1.medium.com/max/1024/1*_f4U2rtvGjOSqr6abQsSog.png" />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.deepankumar.com/blog/payment-gateway-errors-why-your-code-isn-t-to-blame.html" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/images/logo.png" />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Payment Gateway Errors: Why Your Code Isn’t to Blame",
+      "description": "
+Everything was working fine. Which is exactly when the universe said, “Let’s make things interesting.”
+One of our customers’ payments suddenly failed — same ca",
+      "image": "https://cdn-images-1.medium.com/max/1024/1*_f4U2rtvGjOSqr6abQsSog.png",
+      "author": {
+        "@type": "Person",
+        "name": "Deepan Kumar",
+        "url": "https://www.deepankumar.com",
+        "jobTitle": "Staff Engineer",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "G2"
+        }
+      },
+      "publisher": {
+        "@type": "Person",
+        "name": "Deepan Kumar"
+      },
+      "datePublished": "2025-10-21 06:57:00",
+      "url": "https://www.deepankumar.com/blog/payment-gateway-errors-why-your-code-isn-t-to-blame.html",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://www.deepankumar.com/blog/payment-gateway-errors-why-your-code-isn-t-to-blame.html"
+      },
+      "keywords": "software-development, payments, payment-gateway, ruby-on-rails, payment-processing"
+    }
+    </script>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+        background: #000;
+        color: #fff;
+        line-height: 1.6;
+        min-height: 100vh;
+      }
+
+      .blog-post-page {
+        padding: 80px 20px 40px;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .back-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        color: #fff;
+        text-decoration: none;
+        font-size: 1rem;
+        margin-bottom: 2rem;
+        padding: 8px 16px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 4px;
+        transition: all 0.3s ease;
+      }
+
+      .back-link:hover {
+        background: rgba(255, 255, 255, 0.1);
+        border-color: rgba(255, 255, 255, 0.4);
+      }
+
+      .blog-post-content {
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 12px;
+        padding: 40px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .blog-post-hero {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+        margin-bottom: 2rem;
+      }
+
+      .blog-post-meta {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        margin-bottom: 1.5rem;
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 0.9rem;
+        flex-wrap: wrap;
+      }
+
+      .blog-post-categories {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+
+      .category-tag {
+        padding: 4px 12px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 4px;
+        font-size: 0.85rem;
+      }
+
+      h1 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        line-height: 1.2;
+      }
+
+      .blog-post-author {
+        margin-bottom: 2rem;
+        padding-bottom: 2rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        color: rgba(255, 255, 255, 0.8);
+      }
+
+      .blog-post-body {
+        line-height: 1.8;
+        font-size: 1.1rem;
+      }
+
+      .blog-post-body h2 {
+        font-size: 1.8rem;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+      }
+
+      .blog-post-body h3 {
+        font-size: 1.4rem;
+        margin-top: 1.5rem;
+        margin-bottom: 0.8rem;
+      }
+
+      .blog-post-body p {
+        margin-bottom: 1.2rem;
+      }
+
+      .blog-post-body img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 8px;
+        margin: 2rem 0;
+      }
+
+      .blog-post-body a {
+        color: #4a9eff;
+        text-decoration: underline;
+      }
+
+      .blog-post-body a:hover {
+        color: #6bb3ff;
+      }
+
+      .blog-post-body pre,
+      .blog-post-body code {
+        background: rgba(0, 0, 0, 0.3);
+        padding: 2px 6px;
+        border-radius: 4px;
+        font-family: "Courier New", monospace;
+      }
+
+      .blog-post-body pre {
+        padding: 1rem;
+        overflow-x: auto;
+        margin: 1.5rem 0;
+      }
+
+      .blog-post-body ul,
+      .blog-post-body ol {
+        margin-left: 2rem;
+        margin-bottom: 1.2rem;
+      }
+
+      .blog-post-body li {
+        margin-bottom: 0.5rem;
+      }
+
+      .blog-post-body blockquote {
+        border-left: 4px solid rgba(255, 255, 255, 0.3);
+        padding-left: 1.5rem;
+        margin: 1.5rem 0;
+        font-style: italic;
+        color: rgba(255, 255, 255, 0.8);
+      }
+
+      .blog-post-footer {
+        margin-top: 3rem;
+        padding-top: 2rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .medium-link {
+        color: #4a9eff;
+        text-decoration: none;
+        font-weight: 600;
+      }
+
+      .medium-link:hover {
+        text-decoration: underline;
+      }
+
+      @media (max-width: 768px) {
+        .blog-post-page {
+          padding: 60px 15px 30px;
+        }
+
+        .blog-post-content {
+          padding: 20px;
+        }
+
+        h1 {
+          font-size: 1.8rem;
+        }
+
+        .blog-post-body {
+          font-size: 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="blog-post-page">
+      <a href="/#blog" class="back-link">
+        ← Back to Blog
+      </a>
+
+      <article class="blog-post-content">
+        <img src="https://cdn-images-1.medium.com/max/1024/1*_f4U2rtvGjOSqr6abQsSog.png" alt="Payment Gateway Errors: Why Your Code Isn’t to Blame - Article by Deepan Kumar" class="blog-post-hero" />
+
+        <div class="blog-post-meta">
+          <time datetime="2025-10-21 06:57:00">October 21, 2025</time>
+          
+          <div class="blog-post-categories">
+            <span class="category-tag">software-development</span><span class="category-tag">payments</span><span class="category-tag">payment-gateway</span><span class="category-tag">ruby-on-rails</span><span class="category-tag">payment-processing</span>
+          </div>
+          
+        </div>
+
+        <h1>Payment Gateway Errors: Why Your Code Isn’t to Blame</h1>
+
+        <div class="blog-post-author">
+          <p>By Deepan Kumar</p>
+        </div>
+
+        <div class="blog-post-body">
+          
+<p>Everything was working fine. Which is exactly when the universe said, <em>“Let’s make things interesting.”</em></p>
+<p>One of our customers’ payments suddenly failed — same card, same API call, same setup that had worked flawlessly for months.</p>
+<p>I checked the logs.</p>
+<p>Braintree’s response:</p>
+<p><strong>processor_declined</strong></p>
+<p>No explanation. No clues. Just a curt rejection from the digital void.</p>
+<p>At first, I thought, <em>“Great, my code is broken again.”</em> But this wasn’t a coding problem — it was real-world payments showing their unpredictable selves.</p>
+<figure><img alt="" src="https://cdn-images-1.medium.com/max/1024/1*_f4U2rtvGjOSqr6abQsSog.png"></figure><h3>🌈 The Fantasy vs. Reality of Charging a Card</h3>
+<p>In developer land, payments are simple:</p>
+<blockquote>Customer → Your App → Payment Gateway → Success ✅</blockquote>
+<p>In reality:</p>
+<blockquote>Customer → Your App → Gateway → Processor → Network → Issuer Bank → Random Fraud System → Maybe Success</blockquote>
+<p>Every box can say “nope,” and your <strong>processor_declined</strong> is just the unlucky messenger.</p>
+<h3>🕵️‍♂️ When Your Code Is Innocent But the Bank Isn’t</h3>
+<p>Here’s the juicy part.</p>
+<p>We were using <strong>Braintree API </strong>with <em>verify_card: true</em>.</p>
+<p>Cards were vaulted, charges automated and life was smooth… for months.</p>
+<p>Then, boom — one card fails.</p>
+<p>Customer says: <em>“It works fine on Netflix.”</em></p>
+<p>I say: <em>“Then why are you punishing me?”</em></p>
+<p>I check the Braintree dashboard — nothing.</p>
+<p>No failed transaction logs.</p>
+<p>No helpful error messages.</p>
+<p>Just: <strong>processor_declined</strong></p>
+<p>At this point, I’m staring at logs like they’ll suddenly explain the meaning of life. Spoiler: they don’t.</p>
+<h3>🔍 Decoding the ‘Processor Declined’ Black Box</h3>
+<p>After hours of debugging, support tickets, and existential questioning, Braintree finally clarified:</p>
+<ul>
+<li>
+<strong>Processor declined = the customer’s bank said no.</strong> Not Braintree. Not you. The bank.</li>
+<li>
+<strong>Reasons are often generic</strong> to protect cardholder privacy — even Braintree can’t see the exact cause.</li>
+<li>
+<strong>AVS responses happen</strong> even if you don’t have rules set, they just show up in the dashboard.</li>
+<li><strong>Common triggers:</strong></li>
+<li>❌ Incorrect card number or expiration date</li>
+<li>❌ Insufficient funds</li>
+<li>❌ Location-based restrictions</li>
+<li>❌ Bank-specific fraud rules</li>
+</ul>
+<p>Even if the card works elsewhere, the bank can decide this charge is “suspicious”</p>
+<p>As Braintree said:</p>
+<blockquote>“Only the customer’s bank will be able to verify why the transactions are being declined. Sometimes you can tell from the response code, but the bank has the final word.”</blockquote>
+<h3>⚡ Common Payment Misconceptions That Will Ruin Your Day</h3>
+<p>Integrating payments isn’t just writing code — it’s learning humility. Here’s what most devs miss:</p>
+<ol>
+<li>
+<strong>Processor declined ≠ your fault.</strong> ❌</li>
+<li>
+<strong>Banks are opaque.</strong> 🕵️</li>
+<li>
+<strong>AVS checks are sneaky.</strong> ⚡</li>
+<li>
+<strong>Retry logic is your friend.</strong> 🔄</li>
+<li>
+<strong>Be human in error messages.</strong> 📝</li>
+<li>
+<strong>Talk to support (or the customer).</strong> 💬</li>
+</ol>
+<h3>💡 Tips, Tricks, and Sanity-Saving Advice for Devs</h3>
+<p>Here’s my new mantra when handling payments:</p>
+<ul>
+<li>
+<strong>Log smarter.</strong> Differentiate between gateway_rejected, processor_declined, and failed.</li>
+<li>
+<strong>Communicate clearly with customers.</strong> Instead of <strong>processor_declined</strong>, say: <em>“Your bank declined this transaction. Please check your card details or try another payment method.”</em>
+</li>
+<li>
+<strong>Retry or try a different card.</strong> Sometimes, that’s all it takes.</li>
+<li>
+<strong>Keep support in the loop.</strong> They can guide you, even if they can’t see the bank’s exact reason.</li>
+</ul>
+<h3>💬 Payments Aren’t Broken. They’re Just Human.</h3>
+<p>That one failed transaction taught me more about payments than a hundred successful ones ever could.</p>
+<p>Payments aren’t math. They’re trust — a delicate dance between you, your gateway, and a bank somewhere deciding if your $19.99 request <em>feels safe enough.</em></p>
+<p>So next time you see <strong>processor_declined</strong>, take a deep breath:</p>
+<ul>
+<li>Your code is fine.</li>
+<li>Your API keys are fine.</li>
+<li>The universe (or the bank) just said: <em>“Not today.”</em>
+</li>
+</ul>
+<p>Sometimes, the solution is as simple as asking the customer to try a different card or politely nudging them to talk to their bank. And that’s okay — payments are messy, and even the best systems can’t control the human and institutional quirks behind the scenes.</p>
+<img src="https://medium.com/_/stat?event=post.clientViewed&amp;referrerSource=full_rss&amp;postId=b5e6d1704bab" width="1" height="1" alt="">
+
+        </div>
+
+        <div class="blog-post-footer">
+          <p>
+            Read the full article on Medium:
+            <a href="https://medium.com/@deepan.ppgit/payment-gateway-errors-why-your-code-isnt-to-blame-b5e6d1704bab?source=rss-80461a0c324d------2" target="_blank" rel="noopener noreferrer" class="medium-link">
+              View on Medium →
+            </a>
+          </p>
+        </div>
+      </article>
+    </div>
+  </body>
+</html>

@@ -5,6 +5,7 @@ import "./styles/Blog.css";
 interface Article {
   title: string;
   link: string;
+  slug: string;
   pubDate: string;
   description: string;
   thumbnail?: string;
@@ -40,9 +41,16 @@ const Blog = () => {
             thumbnail = imgMatch ? imgMatch[1] : null;
           }
 
+          // Generate URL-friendly slug from title
+          const slug = item.title
+            .toLowerCase()
+            .replace(/[^a-z0-9]+/g, "-")
+            .replace(/(^-|-$)/g, "");
+
           return {
             title: item.title,
             link: item.link,
+            slug: slug,
             rawPubDate: item.pubDate,
             pubDate: new Date(item.pubDate).toLocaleDateString("en-US", {
               year: "numeric",
@@ -124,9 +132,7 @@ const Blog = () => {
             {articles.map((article, index) => (
               <a
                 key={index}
-                href={article.link}
-                target="_blank"
-                rel="noopener noreferrer"
+                href={`/blog/${article.slug}.html`}
                 className="blog-card"
                 data-cursor="disable"
               >
@@ -160,7 +166,7 @@ const Blog = () => {
                   <h3>{article.title}</h3>
                   <p>{article.description}</p>
                   <div className="blog-read-more">
-                    Read More <MdArrowOutward />
+                    Read Article <MdArrowOutward />
                   </div>
                 </div>
               </a>

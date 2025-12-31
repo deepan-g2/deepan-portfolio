@@ -70,4 +70,85 @@
     <priority>0.9</priority>
   </url>
 
+  <!-- Blog Posts -->
+  <!-- Blog Post: Ruby 4 Has Landed! — And It’s Bringing Gifts... -->
+  <url>
+    <loc>https://www.deepankumar.com/blog/ruby-4-has-landed-and-it-s-bringing-gifts.html</loc>
+    <lastmod>2025-12-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Blog Post: 7 Habits That Turned Me from a Mid-Level Developer... -->
+  <url>
+    <loc>https://www.deepankumar.com/blog/7-habits-that-turned-me-from-a-mid-level-developer-to-a-staff-engineer.html</loc>
+    <lastmod>2025-12-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Blog Post: Payment Gateway Errors: Why Your Code Isn’t to Bla... -->
+  <url>
+    <loc>https://www.deepankumar.com/blog/payment-gateway-errors-why-your-code-isn-t-to-blame.html</loc>
+    <lastmod>2025-10-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Blog Post: WhatsApp vs Arattai: The Chat Showdown You Didn’t ... -->
+  <url>
+    <loc>https://www.deepankumar.com/blog/whatsapp-vs-arattai-the-chat-showdown-you-didn-t-know-you-needed.html</loc>
+    <lastmod>2025-10-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Blog Post: ️ Sidekiq Dinner Party: Why Inline Brings Everyone... -->
+  <url>
+    <loc>https://www.deepankumar.com/blog/sidekiq-dinner-party-why-inline-brings-everyone-and-drain-doesn-t.html</loc>
+    <lastmod>2025-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Blog Post: How I Stopped Babysitting Pull Requests with n8n... -->
+  <url>
+    <loc>https://www.deepankumar.com/blog/how-i-stopped-babysitting-pull-requests-with-n8n.html</loc>
+    <lastmod>2025-09-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Blog Post: Why Go Feels Like a Rocket and Ruby Feels Like a C... -->
+  <url>
+    <loc>https://www.deepankumar.com/blog/why-go-feels-like-a-rocket-and-ruby-feels-like-a-cozy-couch.html</loc>
+    <lastmod>2025-09-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Blog Post: Rails World 2025: DHH Brings Goodies, Omarchy Magi... -->
+  <url>
+    <loc>https://www.deepankumar.com/blog/rails-world-2025-dhh-brings-goodies-omarchy-magic-and-zero-bs.html</loc>
+    <lastmod>2025-09-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Blog Post: CodeHealer Part 2: When Your Code Gets a Brain... -->
+  <url>
+    <loc>https://www.deepankumar.com/blog/codehealer-part-2-when-your-code-gets-a-brain.html</loc>
+    <lastmod>2025-09-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Blog Post: Introducing CodeHealer: The AI-Powered Self-Healin... -->
+  <url>
+    <loc>https://www.deepankumar.com/blog/introducing-codehealer-the-ai-powered-self-healing-ruby-gem.html</loc>
+    <lastmod>2025-08-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
 </urlset>

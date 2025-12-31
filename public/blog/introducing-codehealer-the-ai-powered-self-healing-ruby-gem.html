@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Primary Meta Tags -->
+    <title>Introducing CodeHealer: The AI-Powered Self-Healing Ruby Gem - Deepan Kumar's Blog</title>
+    <meta name="title" content="Introducing CodeHealer: The AI-Powered Self-Healing Ruby Gem - Deepan Kumar's Blog" />
+    <meta name="description" content="
+The Problem: Why Traditional Error Handling is Broken
+Every Ruby developer has been there. You deploy your application, everything looks good in testing, and t" />
+    <meta name="keywords" content="openai, ruby, ai, ruby-on-rails, ruby-on-rails-development, Deepan Kumar, Software Engineering, Blog" />
+    <meta name="author" content="Deepan Kumar" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://www.deepankumar.com/blog/introducing-codehealer-the-ai-powered-self-healing-ruby-gem.html" />
+    <meta property="og:title" content="Introducing CodeHealer: The AI-Powered Self-Healing Ruby Gem" />
+    <meta property="og:description" content="
+The Problem: Why Traditional Error Handling is Broken
+Every Ruby developer has been there. You deploy your application, everything looks good in testing, and t" />
+    <meta property="og:image" content="https://cdn-images-1.medium.com/max/1024/1*jHzvCeuynSDQ-xJq6XeRIg.jpeg" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://www.deepankumar.com/blog/introducing-codehealer-the-ai-powered-self-healing-ruby-gem.html" />
+    <meta property="twitter:title" content="Introducing CodeHealer: The AI-Powered Self-Healing Ruby Gem" />
+    <meta property="twitter:description" content="
+The Problem: Why Traditional Error Handling is Broken
+Every Ruby developer has been there. You deploy your application, everything looks good in testing, and t" />
+    <meta property="twitter:image" content="https://cdn-images-1.medium.com/max/1024/1*jHzvCeuynSDQ-xJq6XeRIg.jpeg" />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.deepankumar.com/blog/introducing-codehealer-the-ai-powered-self-healing-ruby-gem.html" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/images/logo.png" />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Introducing CodeHealer: The AI-Powered Self-Healing Ruby Gem",
+      "description": "
+The Problem: Why Traditional Error Handling is Broken
+Every Ruby developer has been there. You deploy your application, everything looks good in testing, and t",
+      "image": "https://cdn-images-1.medium.com/max/1024/1*jHzvCeuynSDQ-xJq6XeRIg.jpeg",
+      "author": {
+        "@type": "Person",
+        "name": "Deepan Kumar",
+        "url": "https://www.deepankumar.com",
+        "jobTitle": "Staff Engineer",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "G2"
+        }
+      },
+      "publisher": {
+        "@type": "Person",
+        "name": "Deepan Kumar"
+      },
+      "datePublished": "2025-08-14 08:32:02",
+      "url": "https://www.deepankumar.com/blog/introducing-codehealer-the-ai-powered-self-healing-ruby-gem.html",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://www.deepankumar.com/blog/introducing-codehealer-the-ai-powered-self-healing-ruby-gem.html"
+      },
+      "keywords": "openai, ruby, ai, ruby-on-rails, ruby-on-rails-development"
+    }
+    </script>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+        background: #000;
+        color: #fff;
+        line-height: 1.6;
+        min-height: 100vh;
+      }
+
+      .blog-post-page {
+        padding: 80px 20px 40px;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .back-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        color: #fff;
+        text-decoration: none;
+        font-size: 1rem;
+        margin-bottom: 2rem;
+        padding: 8px 16px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 4px;
+        transition: all 0.3s ease;
+      }
+
+      .back-link:hover {
+        background: rgba(255, 255, 255, 0.1);
+        border-color: rgba(255, 255, 255, 0.4);
+      }
+
+      .blog-post-content {
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 12px;
+        padding: 40px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .blog-post-hero {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+        margin-bottom: 2rem;
+      }
+
+      .blog-post-meta {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        margin-bottom: 1.5rem;
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 0.9rem;
+        flex-wrap: wrap;
+      }
+
+      .blog-post-categories {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+
+      .category-tag {
+        padding: 4px 12px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 4px;
+        font-size: 0.85rem;
+      }
+
+      h1 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        line-height: 1.2;
+      }
+
+      .blog-post-author {
+        margin-bottom: 2rem;
+        padding-bottom: 2rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        color: rgba(255, 255, 255, 0.8);
+      }
+
+      .blog-post-body {
+        line-height: 1.8;
+        font-size: 1.1rem;
+      }
+
+      .blog-post-body h2 {
+        font-size: 1.8rem;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+      }
+
+      .blog-post-body h3 {
+        font-size: 1.4rem;
+        margin-top: 1.5rem;
+        margin-bottom: 0.8rem;
+      }
+
+      .blog-post-body p {
+        margin-bottom: 1.2rem;
+      }
+
+      .blog-post-body img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 8px;
+        margin: 2rem 0;
+      }
+
+      .blog-post-body a {
+        color: #4a9eff;
+        text-decoration: underline;
+      }
+
+      .blog-post-body a:hover {
+        color: #6bb3ff;
+      }
+
+      .blog-post-body pre,
+      .blog-post-body code {
+        background: rgba(0, 0, 0, 0.3);
+        padding: 2px 6px;
+        border-radius: 4px;
+        font-family: "Courier New", monospace;
+      }
+
+      .blog-post-body pre {
+        padding: 1rem;
+        overflow-x: auto;
+        margin: 1.5rem 0;
+      }
+
+      .blog-post-body ul,
+      .blog-post-body ol {
+        margin-left: 2rem;
+        margin-bottom: 1.2rem;
+      }
+
+      .blog-post-body li {
+        margin-bottom: 0.5rem;
+      }
+
+      .blog-post-body blockquote {
+        border-left: 4px solid rgba(255, 255, 255, 0.3);
+        padding-left: 1.5rem;
+        margin: 1.5rem 0;
+        font-style: italic;
+        color: rgba(255, 255, 255, 0.8);
+      }
+
+      .blog-post-footer {
+        margin-top: 3rem;
+        padding-top: 2rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .medium-link {
+        color: #4a9eff;
+        text-decoration: none;
+        font-weight: 600;
+      }
+
+      .medium-link:hover {
+        text-decoration: underline;
+      }
+
+      @media (max-width: 768px) {
+        .blog-post-page {
+          padding: 60px 15px 30px;
+        }
+
+        .blog-post-content {
+          padding: 20px;
+        }
+
+        h1 {
+          font-size: 1.8rem;
+        }
+
+        .blog-post-body {
+          font-size: 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="blog-post-page">
+      <a href="/#blog" class="back-link">
+        ← Back to Blog
+      </a>
+
+      <article class="blog-post-content">
+        <img src="https://cdn-images-1.medium.com/max/1024/1*jHzvCeuynSDQ-xJq6XeRIg.jpeg" alt="Introducing CodeHealer: The AI-Powered Self-Healing Ruby Gem - Article by Deepan Kumar" class="blog-post-hero" />
+
+        <div class="blog-post-meta">
+          <time datetime="2025-08-14 08:32:02">August 14, 2025</time>
+          
+          <div class="blog-post-categories">
+            <span class="category-tag">openai</span><span class="category-tag">ruby</span><span class="category-tag">ai</span><span class="category-tag">ruby-on-rails</span><span class="category-tag">ruby-on-rails-development</span>
+          </div>
+          
+        </div>
+
+        <h1>Introducing CodeHealer: The AI-Powered Self-Healing Ruby Gem</h1>
+
+        <div class="blog-post-author">
+          <p>By Deepan Kumar</p>
+        </div>
+
+        <div class="blog-post-body">
+          
+<figure><img alt="" src="https://cdn-images-1.medium.com/max/1024/1*jHzvCeuynSDQ-xJq6XeRIg.jpeg"></figure><h3>The Problem: Why Traditional Error Handling is Broken</h3>
+<p>Every Ruby developer has been there. You deploy your application, everything looks good in testing, and then — boom! A NoMethodError crashes your user’s experience at 2 AM. You wake up to Slack notifications, scramble to fix the bug, deploy a hotfix, and hope it doesn’t happen again.</p>
+<blockquote>This reactive approach to error handling is fundamentally flawed. It’s like having a car that only tells you it’s broken after it stops working. What if your code could heal itself? What if errors triggered an intelligent system that analyzed the problem, understood your business context, and automatically generated fixes?</blockquote>
+<p>That’s exactly what CodeHealer does.</p>
+<h3>Meet CodeHealer: Your 24/7 AI Code Doctor</h3>
+<p><a href="https://github.com/deepan-g2/code-healer">CodeHealer</a> is a revolutionary Ruby gem that transforms error handling from a reactive process into a proactive, intelligent system. It’s like having a senior developer on call 24/7, one who never sleeps, never gets tired, and has access to your entire codebase and business rules.</p>
+<h3>What Makes CodeHealer Special</h3>
+<ul>
+<li>🤖 <strong>AI-Powered Analysis:</strong> Uses OpenAI GPT models and Claude AI for intelligent error diagnosis</li>
+<li>💼 <strong>Business Context Awareness:</strong> Incorporates your domain knowledge and business rules</li>
+<li>🔄 <strong>Automatic Code Patching:</strong> Applies fixes directly to your source code</li>
+<li>�� <strong>Git Integration</strong>: Creates commits and pull requests for all fixes</li>
+<li>⚡ <strong>Background Processing:</strong> Non-blocking error resolution with Sidekiq</li>
+<li>🎯 <strong>Multiple Healing Strategies:</strong> API-based, Claude Code Terminal, or hybrid approaches</li>
+</ul>
+<h3>The Magic: How It Actually Works</h3>
+<p>Here’s the incredible part: CodeHealer doesn’t just catch errors — it fixes them automatically. When an error occurs in your Rails application:</p>
+<ol>
+<li>
+<strong>Error Detection:</strong> CodeHealer captures the error, backtrace, and context</li>
+<li>
+<strong>AI Analysis:</strong> Sends the error to AI models that understand your codebase</li>
+<li>
+<strong>Business Context:</strong> Incorporates your business rules and domain knowledge</li>
+<li>
+<strong>Fix Generation:</strong> Creates intelligent, context-aware code fixes</li>
+<li>
+<strong>Automatic Application:</strong> Patches your source code</li>
+<li>
+<strong>Git Integration:</strong> Creates commits and optionally pull requests</li>
+</ol>
+<h3>Real Example: The Self-Healing Calculator</h3>
+<p>Let me show you what this looks like in practice. Imagine you have this calculator class:</p>
+<pre>class BrokenCalculator &lt; ApplicationRecord<br>  def divide(a, b)<br>    a / b  # This will crash when b = 0<br>  end<br>end</pre>
+<p>When someone calls divide(10, 0), your app crashes with a ZeroDivisionError. But with CodeHealer, here’s what happens automatically:</p>
+<pre>class BrokenCalculator &lt; ApplicationRecord<br>  def divide(a, b)<br>    # Input validation<br>    if b.nil? || b == 0<br>      Rails.logger.warn("Invalid input: Divisor cannot be nil or zero")<br>      return :division_by_zero<br>    end<br><br>    # Safe division with error handling<br>    begin<br>      result = a / b<br>      Rails.logger.info("Division successful: #{a} / #{b} = #{result}")<br>      result<br>    rescue =&gt; e<br>      Rails.logger.error("Unexpected error in division: #{e.message}")<br>      :unexpected_error<br>    end<br>  end<br>end</pre>
+<p>CodeHealer automatically:</p>
+<ul>
+<li>✅ Fixed the crash with proper input validation</li>
+<li>✅ Added error handling with meaningful return values</li>
+<li>✅ Included logging for monitoring and debugging</li>
+<li>✅ Created a Git commit with descriptive message</li>
+<li>✅ Made the fix immediately active by reloading the class</li>
+</ul>
+<h3>Getting Started: From Zero to Self-Healing in 5 Minutes</h3>
+<p>The best part? Setting up CodeHealer is incredibly simple.</p>
+<h3>1. Install the Gem</h3>
+<pre>gem install code_healer</pre>
+<h3>2. Run Interactive Setup</h3>
+<pre>code_healer-setup</pre>
+<p>The setup script will:</p>
+<ul>
+<li>Add CodeHealer to your Gemfile</li>
+<li>Collect your OpenAI API key and GitHub token</li>
+<li>Create configuration files</li>
+<li>Set up business context</li>
+<li>Install all dependencies</li>
+</ul>
+<h3>3. Start Healing</h3>
+<pre># Start your Rails server<br>rails s<br><br># Start Sidekiq for background processing<br>bundle exec sidekiq</pre>
+<p>That’s it! CodeHealer now monitors your application and automatically fixes errors.</p>
+<h3>Why This Changes Everything</h3>
+<h3>For Developers</h3>
+<ul>
+<li>No more 2 AM debugging sessions</li>
+<li>Confidence to deploy faster</li>
+<li>Focus on building features, not fixing bugs</li>
+<li>Learning from AI-generated fixes</li>
+</ul>
+<h3>For Teams</h3>
+<ul>
+<li>Reduced production incidents</li>
+<li>Faster bug resolution</li>
+<li>Consistent error handling patterns</li>
+<li>Knowledge sharing through AI fixes</li>
+</ul>
+<h3>For Businesses</h3>
+<ul>
+<li>Higher application reliability</li>
+<li>Reduced downtime costs</li>
+<li>Faster feature delivery</li>
+<li>Better user experience</li>
+</ul>
+<h3>Ready to Experience the Future?</h3>
+<p>CodeHealer represents a fundamental shift in how we think about error handling. Instead of treating errors as problems to be solved after they occur, we’re now treating them as opportunities for our code to learn, adapt, and improve itself.</p>
+<p>Install CodeHealer today and see the future of error handling:</p>
+<pre>gem install code_healer</pre>
+<p>Star the repository on <a href="https://github.com/deepan-g2/code-healer">GitHub</a> to show your support.</p>
+<p>Follow this series to learn how to configure advanced features, see real examples, and understand the technology behind the magic.</p>
+<p>Built with ❤️ by <a href="https://www.linkedin.com/in/deepan-kumar-5972a0a8/">Deepan Kumar</a></p>
+<img src="https://medium.com/_/stat?event=post.clientViewed&amp;referrerSource=full_rss&amp;postId=340cb00818e4" width="1" height="1" alt="">
+
+        </div>
+
+        <div class="blog-post-footer">
+          <p>
+            Read the full article on Medium:
+            <a href="https://medium.com/@deepan.ppgit/introducing-codehealer-the-ai-powered-self-healing-ruby-gem-340cb00818e4?source=rss-80461a0c324d------2" target="_blank" rel="noopener noreferrer" class="medium-link">
+              View on Medium →
+            </a>
+          </p>
+        </div>
+      </article>
+    </div>
+  </body>
+</html>

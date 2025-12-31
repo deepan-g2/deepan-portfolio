@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Primary Meta Tags -->
+    <title>Why Go Feels Like a Rocket and Ruby Feels Like a Cozy Couch - Deepan Kumar's Blog</title>
+    <meta name="title" content="Why Go Feels Like a Rocket and Ruby Feels Like a Cozy Couch - Deepan Kumar's Blog" />
+    <meta name="description" content="
+Go vs RubyI’ve been coding in Ruby long enough to know one truth: Ruby is joyful, expressive, and just feels like home. But every now and then, someone waves a" />
+    <meta name="keywords" content="golang, software-development, ruby-on-rails, ruby, Deepan Kumar, Software Engineering, Blog" />
+    <meta name="author" content="Deepan Kumar" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://www.deepankumar.com/blog/why-go-feels-like-a-rocket-and-ruby-feels-like-a-cozy-couch.html" />
+    <meta property="og:title" content="Why Go Feels Like a Rocket and Ruby Feels Like a Cozy Couch" />
+    <meta property="og:description" content="
+Go vs RubyI’ve been coding in Ruby long enough to know one truth: Ruby is joyful, expressive, and just feels like home. But every now and then, someone waves a" />
+    <meta property="og:image" content="https://cdn-images-1.medium.com/max/1024/1*vFwv_O1v7_0DTmYn3gIzmA.png" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://www.deepankumar.com/blog/why-go-feels-like-a-rocket-and-ruby-feels-like-a-cozy-couch.html" />
+    <meta property="twitter:title" content="Why Go Feels Like a Rocket and Ruby Feels Like a Cozy Couch" />
+    <meta property="twitter:description" content="
+Go vs RubyI’ve been coding in Ruby long enough to know one truth: Ruby is joyful, expressive, and just feels like home. But every now and then, someone waves a" />
+    <meta property="twitter:image" content="https://cdn-images-1.medium.com/max/1024/1*vFwv_O1v7_0DTmYn3gIzmA.png" />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.deepankumar.com/blog/why-go-feels-like-a-rocket-and-ruby-feels-like-a-cozy-couch.html" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/images/logo.png" />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Why Go Feels Like a Rocket and Ruby Feels Like a Cozy Couch",
+      "description": "
+Go vs RubyI’ve been coding in Ruby long enough to know one truth: Ruby is joyful, expressive, and just feels like home. But every now and then, someone waves a",
+      "image": "https://cdn-images-1.medium.com/max/1024/1*vFwv_O1v7_0DTmYn3gIzmA.png",
+      "author": {
+        "@type": "Person",
+        "name": "Deepan Kumar",
+        "url": "https://www.deepankumar.com",
+        "jobTitle": "Staff Engineer",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "G2"
+        }
+      },
+      "publisher": {
+        "@type": "Person",
+        "name": "Deepan Kumar"
+      },
+      "datePublished": "2025-09-17 16:10:18",
+      "url": "https://www.deepankumar.com/blog/why-go-feels-like-a-rocket-and-ruby-feels-like-a-cozy-couch.html",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://www.deepankumar.com/blog/why-go-feels-like-a-rocket-and-ruby-feels-like-a-cozy-couch.html"
+      },
+      "keywords": "golang, software-development, ruby-on-rails, ruby"
+    }
+    </script>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+        background: #000;
+        color: #fff;
+        line-height: 1.6;
+        min-height: 100vh;
+      }
+
+      .blog-post-page {
+        padding: 80px 20px 40px;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .back-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        color: #fff;
+        text-decoration: none;
+        font-size: 1rem;
+        margin-bottom: 2rem;
+        padding: 8px 16px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 4px;
+        transition: all 0.3s ease;
+      }
+
+      .back-link:hover {
+        background: rgba(255, 255, 255, 0.1);
+        border-color: rgba(255, 255, 255, 0.4);
+      }
+
+      .blog-post-content {
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 12px;
+        padding: 40px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .blog-post-hero {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+        margin-bottom: 2rem;
+      }
+
+      .blog-post-meta {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        margin-bottom: 1.5rem;
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 0.9rem;
+        flex-wrap: wrap;
+      }
+
+      .blog-post-categories {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+
+      .category-tag {
+        padding: 4px 12px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 4px;
+        font-size: 0.85rem;
+      }
+
+      h1 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        line-height: 1.2;
+      }
+
+      .blog-post-author {
+        margin-bottom: 2rem;
+        padding-bottom: 2rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        color: rgba(255, 255, 255, 0.8);
+      }
+
+      .blog-post-body {
+        line-height: 1.8;
+        font-size: 1.1rem;
+      }
+
+      .blog-post-body h2 {
+        font-size: 1.8rem;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+      }
+
+      .blog-post-body h3 {
+        font-size: 1.4rem;
+        margin-top: 1.5rem;
+        margin-bottom: 0.8rem;
+      }
+
+      .blog-post-body p {
+        margin-bottom: 1.2rem;
+      }
+
+      .blog-post-body img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 8px;
+        margin: 2rem 0;
+      }
+
+      .blog-post-body a {
+        color: #4a9eff;
+        text-decoration: underline;
+      }
+
+      .blog-post-body a:hover {
+        color: #6bb3ff;
+      }
+
+      .blog-post-body pre,
+      .blog-post-body code {
+        background: rgba(0, 0, 0, 0.3);
+        padding: 2px 6px;
+        border-radius: 4px;
+        font-family: "Courier New", monospace;
+      }
+
+      .blog-post-body pre {
+        padding: 1rem;
+        overflow-x: auto;
+        margin: 1.5rem 0;
+      }
+
+      .blog-post-body ul,
+      .blog-post-body ol {
+        margin-left: 2rem;
+        margin-bottom: 1.2rem;
+      }
+
+      .blog-post-body li {
+        margin-bottom: 0.5rem;
+      }
+
+      .blog-post-body blockquote {
+        border-left: 4px solid rgba(255, 255, 255, 0.3);
+        padding-left: 1.5rem;
+        margin: 1.5rem 0;
+        font-style: italic;
+        color: rgba(255, 255, 255, 0.8);
+      }
+
+      .blog-post-footer {
+        margin-top: 3rem;
+        padding-top: 2rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .medium-link {
+        color: #4a9eff;
+        text-decoration: none;
+        font-weight: 600;
+      }
+
+      .medium-link:hover {
+        text-decoration: underline;
+      }
+
+      @media (max-width: 768px) {
+        .blog-post-page {
+          padding: 60px 15px 30px;
+        }
+
+        .blog-post-content {
+          padding: 20px;
+        }
+
+        h1 {
+          font-size: 1.8rem;
+        }
+
+        .blog-post-body {
+          font-size: 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="blog-post-page">
+      <a href="/#blog" class="back-link">
+        ← Back to Blog
+      </a>
+
+      <article class="blog-post-content">
+        <img src="https://cdn-images-1.medium.com/max/1024/1*vFwv_O1v7_0DTmYn3gIzmA.png" alt="Why Go Feels Like a Rocket and Ruby Feels Like a Cozy Couch - Article by Deepan Kumar" class="blog-post-hero" />
+
+        <div class="blog-post-meta">
+          <time datetime="2025-09-17 16:10:18">September 17, 2025</time>
+          
+          <div class="blog-post-categories">
+            <span class="category-tag">golang</span><span class="category-tag">software-development</span><span class="category-tag">ruby-on-rails</span><span class="category-tag">ruby</span>
+          </div>
+          
+        </div>
+
+        <h1>Why Go Feels Like a Rocket and Ruby Feels Like a Cozy Couch</h1>
+
+        <div class="blog-post-author">
+          <p>By Deepan Kumar</p>
+        </div>
+
+        <div class="blog-post-body">
+          
+<figure><img alt="" src="https://cdn-images-1.medium.com/max/1024/1*vFwv_O1v7_0DTmYn3gIzmA.png"><figcaption>Go vs Ruby</figcaption></figure><p>I’ve been coding in Ruby long enough to know one truth: Ruby is joyful, expressive, and just feels like home. But every now and then, someone waves a Go benchmark in my face and I can’t help but wonder… why is Go so much faster?</p>
+<p>So I went digging. What I found took me from goroutines to Ruby’s GIL to JRuby and TruffleRuby. Buckle up, because this ride is part science, part philosophy, and part therapy for Ruby developers.</p>
+<p><strong>Go: The Overachiever</strong></p>
+<p>Go is like that student who finishes the exam in 10 minutes and still gets full marks. It’s compiled, so it talks to the machine directly without an interpreter whispering in its ear.</p>
+<p>Then it has goroutines. Think of them as mini threads that are so lightweight you can spin up thousands without the CPU breaking a sweat. Go’s runtime scheduler then plays Tetris with these goroutines, packing them efficiently onto actual CPU cores.</p>
+<p>Result? Concurrency feels effortless and performance stays sharp.</p>
+<p><strong>Ruby: The Poet with a Lock</strong></p>
+<p>Ruby, on the other hand, is more like a poet. It doesn’t rush. It wants every line of code to read like a sentence. The downside? Ruby MRI has a <a href="https://jonathan-wong.medium.com/what-is-global-interpreter-lock-in-relation-to-ruby-18d0f4f20e20"><em>Global Interpreter Lock</em></a>. Imagine a poetry slam where only one poet can speak at a time, even though the stage has four microphones. That’s Ruby threads.</p>
+<p>Yes, Ruby threads are real OS threads. But the GIL makes them take turns like kids waiting for the swing. This keeps memory safe but kills true parallel execution for CPU-heavy tasks.</p>
+<p><strong><em>Can’t We Just Remove the GIL?</em></strong></p>
+<p>In theory, yes. In practice, that’s like removing the brakes from a car. Technically faster, but now you’re doomed at the first turn. Without the GIL, every Ruby object would need its own locks and guards. The language would get messy and possibly slower overall.</p>
+<p>Go never had this problem because it was built for concurrency from day one. Ruby wasn’t. Ruby was built for happiness, not race conditions.</p>
+<p><strong>Enter JRuby and TruffleRuby</strong></p>
+<p>Not all Ruby interpreters are created equal. <a href="https://github.com/jruby/jruby">JRuby</a> runs on the JVM, which means it can use real parallel threads and borrow decades of Java optimizations. <a href="https://github.com/oracle/truffleruby">TruffleRuby</a> runs on GraalVM and takes performance seriously. It skips the GIL, uses JIT compilation, and after a warmup period can sometimes outrun MRI by miles.</p>
+<p>But here’s the catch: not every gem plays nice with these alternative Rubies. Especially gems with C extensions. And web servers that boot fast might not benefit from the “wait for warmup” model.</p>
+<p><strong><em>So Where Does Ruby Shine?</em></strong></p>
+<p>Ruby doesn’t need to beat Go at its own game. Ruby shines at making developers happy. Rails still gets apps to production faster than almost anything else. Most web apps are I/O bound, waiting on databases and APIs, not CPU math. And when you need raw speed for things like embeddings, vector search, or machine learning, you can always let Go or Rust do the heavy lifting while Ruby orchestrates.</p>
+<p>Think of Ruby as the chef who designs the menu, takes the orders, and keeps everyone smiling. Go and Rust? They’re the ones in the back kitchen, chopping onions at lightning speed.</p>
+<p><strong>The Takeaway</strong></p>
+<p>Go feels like a rocket. Ruby feels like a cozy couch. One gets you places fast, the other makes the journey enjoyable. Instead of trying to make Ruby into Go, maybe the real win is letting each do what it does best.</p>
+<blockquote>And hey, sometimes after a long day of rockets and goroutines, there’s nothing better than sinking into Ruby’s cozy couch.</blockquote>
+<img src="https://medium.com/_/stat?event=post.clientViewed&amp;referrerSource=full_rss&amp;postId=e65fb9d8cf6f" width="1" height="1" alt="">
+
+        </div>
+
+        <div class="blog-post-footer">
+          <p>
+            Read the full article on Medium:
+            <a href="https://medium.com/@deepan.ppgit/why-go-feels-like-a-rocket-and-ruby-feels-like-a-cozy-couch-e65fb9d8cf6f?source=rss-80461a0c324d------2" target="_blank" rel="noopener noreferrer" class="medium-link">
+              View on Medium →
+            </a>
+          </p>
+        </div>
+      </article>
+    </div>
+  </body>
+</html>

@@ -31,6 +31,20 @@ const MainContainer = ({ children }: PropsWithChildren) => {
     };
   }, [isDesktopView]);
 
+  // Handle hash navigation on page load (for back navigation from blog pages)
+  useEffect(() => {
+    const hash = window.location.hash;
+    if (hash) {
+      // Wait for content to load, then scroll to hash
+      setTimeout(() => {
+        const element = document.getElementById(hash.substring(1));
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      }, 500); // Increased timeout to ensure content is loaded
+    }
+  }, []);
+
   return (
     <div className="container-main">
       <ScrollProgress />

@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Primary Meta Tags -->
+    <title>Ruby 4 Has Landed! — And It’s Bringing Gifts - Deepan Kumar's Blog</title>
+    <meta name="title" content="Ruby 4 Has Landed! — And It’s Bringing Gifts - Deepan Kumar's Blog" />
+    <meta name="description" content="
+🎉 Ruby 4 Has Landed! — And It’s Bringing Gifts 🎄
+Yes folks — Matz did it again! On a chilly Christmas morning (or late night debugging sesh for you), Ruby 4." />
+    <meta name="keywords" content="upgrade, ruby-on-rails, software-development, ruby, Deepan Kumar, Software Engineering, Blog" />
+    <meta name="author" content="Deepan Kumar" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://www.deepankumar.com/blog/ruby-4-has-landed-and-it-s-bringing-gifts.html" />
+    <meta property="og:title" content="Ruby 4 Has Landed! — And It’s Bringing Gifts" />
+    <meta property="og:description" content="
+🎉 Ruby 4 Has Landed! — And It’s Bringing Gifts 🎄
+Yes folks — Matz did it again! On a chilly Christmas morning (or late night debugging sesh for you), Ruby 4." />
+    <meta property="og:image" content="https://cdn-images-1.medium.com/max/1024/1*HjKXDh91H9hZG0pyRoRFAA.png" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://www.deepankumar.com/blog/ruby-4-has-landed-and-it-s-bringing-gifts.html" />
+    <meta property="twitter:title" content="Ruby 4 Has Landed! — And It’s Bringing Gifts" />
+    <meta property="twitter:description" content="
+🎉 Ruby 4 Has Landed! — And It’s Bringing Gifts 🎄
+Yes folks — Matz did it again! On a chilly Christmas morning (or late night debugging sesh for you), Ruby 4." />
+    <meta property="twitter:image" content="https://cdn-images-1.medium.com/max/1024/1*HjKXDh91H9hZG0pyRoRFAA.png" />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.deepankumar.com/blog/ruby-4-has-landed-and-it-s-bringing-gifts.html" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/images/logo.png" />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Ruby 4 Has Landed! — And It’s Bringing Gifts",
+      "description": "
+🎉 Ruby 4 Has Landed! — And It’s Bringing Gifts 🎄
+Yes folks — Matz did it again! On a chilly Christmas morning (or late night debugging sesh for you), Ruby 4.",
+      "image": "https://cdn-images-1.medium.com/max/1024/1*HjKXDh91H9hZG0pyRoRFAA.png",
+      "author": {
+        "@type": "Person",
+        "name": "Deepan Kumar",
+        "url": "https://www.deepankumar.com",
+        "jobTitle": "Staff Engineer",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "G2"
+        }
+      },
+      "publisher": {
+        "@type": "Person",
+        "name": "Deepan Kumar"
+      },
+      "datePublished": "2025-12-30 08:58:51",
+      "url": "https://www.deepankumar.com/blog/ruby-4-has-landed-and-it-s-bringing-gifts.html",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://www.deepankumar.com/blog/ruby-4-has-landed-and-it-s-bringing-gifts.html"
+      },
+      "keywords": "upgrade, ruby-on-rails, software-development, ruby"
+    }
+    </script>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+        background: #000;
+        color: #fff;
+        line-height: 1.6;
+        min-height: 100vh;
+      }
+
+      .blog-post-page {
+        padding: 80px 20px 40px;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .back-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        color: #fff;
+        text-decoration: none;
+        font-size: 1rem;
+        margin-bottom: 2rem;
+        padding: 8px 16px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 4px;
+        transition: all 0.3s ease;
+      }
+
+      .back-link:hover {
+        background: rgba(255, 255, 255, 0.1);
+        border-color: rgba(255, 255, 255, 0.4);
+      }
+
+      .blog-post-content {
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 12px;
+        padding: 40px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .blog-post-hero {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+        margin-bottom: 2rem;
+      }
+
+      .blog-post-meta {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        margin-bottom: 1.5rem;
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 0.9rem;
+        flex-wrap: wrap;
+      }
+
+      .blog-post-categories {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+
+      .category-tag {
+        padding: 4px 12px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 4px;
+        font-size: 0.85rem;
+      }
+
+      h1 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        line-height: 1.2;
+      }
+
+      .blog-post-author {
+        margin-bottom: 2rem;
+        padding-bottom: 2rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        color: rgba(255, 255, 255, 0.8);
+      }
+
+      .blog-post-body {
+        line-height: 1.8;
+        font-size: 1.1rem;
+      }
+
+      .blog-post-body h2 {
+        font-size: 1.8rem;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+      }
+
+      .blog-post-body h3 {
+        font-size: 1.4rem;
+        margin-top: 1.5rem;
+        margin-bottom: 0.8rem;
+      }
+
+      .blog-post-body p {
+        margin-bottom: 1.2rem;
+      }
+
+      .blog-post-body img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 8px;
+        margin: 2rem 0;
+      }
+
+      .blog-post-body a {
+        color: #4a9eff;
+        text-decoration: underline;
+      }
+
+      .blog-post-body a:hover {
+        color: #6bb3ff;
+      }
+
+      .blog-post-body pre,
+      .blog-post-body code {
+        background: rgba(0, 0, 0, 0.3);
+        padding: 2px 6px;
+        border-radius: 4px;
+        font-family: "Courier New", monospace;
+      }
+
+      .blog-post-body pre {
+        padding: 1rem;
+        overflow-x: auto;
+        margin: 1.5rem 0;
+      }
+
+      .blog-post-body ul,
+      .blog-post-body ol {
+        margin-left: 2rem;
+        margin-bottom: 1.2rem;
+      }
+
+      .blog-post-body li {
+        margin-bottom: 0.5rem;
+      }
+
+      .blog-post-body blockquote {
+        border-left: 4px solid rgba(255, 255, 255, 0.3);
+        padding-left: 1.5rem;
+        margin: 1.5rem 0;
+        font-style: italic;
+        color: rgba(255, 255, 255, 0.8);
+      }
+
+      .blog-post-footer {
+        margin-top: 3rem;
+        padding-top: 2rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .medium-link {
+        color: #4a9eff;
+        text-decoration: none;
+        font-weight: 600;
+      }
+
+      .medium-link:hover {
+        text-decoration: underline;
+      }
+
+      @media (max-width: 768px) {
+        .blog-post-page {
+          padding: 60px 15px 30px;
+        }
+
+        .blog-post-content {
+          padding: 20px;
+        }
+
+        h1 {
+          font-size: 1.8rem;
+        }
+
+        .blog-post-body {
+          font-size: 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="blog-post-page">
+      <a href="/#blog" class="back-link">
+        ← Back to Blog
+      </a>
+
+      <article class="blog-post-content">
+        <img src="https://cdn-images-1.medium.com/max/1024/1*HjKXDh91H9hZG0pyRoRFAA.png" alt="Ruby 4 Has Landed! — And It’s Bringing Gifts - Article by Deepan Kumar" class="blog-post-hero" />
+
+        <div class="blog-post-meta">
+          <time datetime="2025-12-30 08:58:51">December 30, 2025</time>
+          
+          <div class="blog-post-categories">
+            <span class="category-tag">upgrade</span><span class="category-tag">ruby-on-rails</span><span class="category-tag">software-development</span><span class="category-tag">ruby</span>
+          </div>
+          
+        </div>
+
+        <h1>Ruby 4 Has Landed! — And It’s Bringing Gifts</h1>
+
+        <div class="blog-post-author">
+          <p>By Deepan Kumar</p>
+        </div>
+
+        <div class="blog-post-body">
+          
+<h3>🎉 Ruby 4 Has Landed! — And It’s Bringing Gifts 🎄</h3>
+<p>Yes folks — Matz did it again! On a chilly Christmas morning (or late night debugging sesh for you), <strong>Ruby 4.0.0</strong> dropped like a holiday surprise. And oh boy — it brought <strong>presents for everyone</strong>, from the curious beginner to the grizzled Rails veteran.</p>
+<p>But this isn’t your grandma’s gem update — this one feels like <em>Ruby finally grew up… with style.</em> Let’s unwrap what’s inside.</p>
+<figure><img alt="" src="https://cdn-images-1.medium.com/max/1024/1*HjKXDh91H9hZG0pyRoRFAA.png"><figcaption>Ruby 4.0</figcaption></figure><h3>📦Ruby Box — Ruby’s New Toy Chest 🧰</h3>
+<p>Ever wished you could lock away that one gem patch that ruins everything? Or isolate a rogue monkey patch in a sandbox like a responsible developer parent?</p>
+<p>🎩 <strong>Enter: Ruby Box</strong> — Ruby’s new experimental feature that lets you isolate code, patches, and entire definitions <em>inside little boxes</em>.</p>
+<p>Say goodbye to global chaos! With an environment flag (RUBY_BOX=1), you get your very own Ruby::Box universe where gems behave and chaos stays outside.</p>
+<p>It’s like having siblings … but in separate rooms.</p>
+<h3>⚡ZJIT: Just-In-Time for a Speed Boost 🚀</h3>
+<p>No, this isn’t the name of a new DJ. It’s Ruby’s ambitious <strong>next-gen JIT compiler</strong> built with Rust under the hood.</p>
+<p>ZJIT is not yet blazing fast — but it’s definitely burning brighter than the interpreter alone. It’s like putting a mild espresso shot into Ruby’s coffee — performance improves, but you’re still pacing yourself.</p>
+<p>💡 <em>Tip:</em> You’ll need Rust 1.85+ to build this, so it’s a great excuse to install Rust if you <em>haven’t</em> yet .</p>
+<h3>🪢 Ractor Gets Stronger — Parallelism Level: Woo!</h3>
+<p>Parallelism is like that friend who promises to help but never shows up. In Ruby 4, <strong>Ractor is finally becoming that friend who actually helps.</strong></p>
+<p>With new classes like Ractor::Port and easier sharing of Proc objects between Ractors, Ruby’s concurrency model gets way less awkward. 💪</p>
+<p>That means:</p>
+<ul>
+<li>Better message passing</li>
+<li>Less CPU cache conflict</li>
+<li>Real talk about parallel execution 🚀</li>
+</ul>
+<h3>💫 Language Tweaks That Feel… Nice</h3>
+<p>Ruby 4 doesn’t forget its roots in <em>developer joy</em>. Some subtle but delightful changes:</p>
+<p>✨ *nil no longer calls nil.to_a — cleaning up odd edges.</p>
+<p>✨ Logical operators (&amp;&amp;, ||) at the <strong>start</strong> of a line now behave like fluent dots — cleaner conditionals!</p>
+<p>Adds a little <em>poetry</em> to your flow control, if you ask me.</p>
+<h3>🧱 Core Class Upgrades — More Muscle Under the Hood</h3>
+<p>Ruby 4 polishes the classics:</p>
+<ul>
+<li>
+<strong>Array</strong> gets rfind and faster find.</li>
+<li>
+<strong>Set</strong> moves into the core language — no more require “set” headaches.</li>
+<li>
+<strong>String</strong> updates to Unicode 17 (emoji lovers rejoice ❤️✨).</li>
+</ul>
+<p>And a ton of internal speed and GC improvements — so your apps feel snappier even when they’re stuck in Friday-night traffic.</p>
+<h3>📦 RubyGems &amp; Bundler 4 — Bonus Gifts in the Box</h3>
+<p>Ruby’s package manager also got a glow-up:</p>
+<p>🎉 <strong>Faster C-extension gem builds</strong> thanks to auto-parallelization.</p>
+<p>📦 Customizable lockfile names — because sometimes <em>one lockfile is just not enough</em>.</p>
+<p>🐍 Go-extension gem support! Yep, Ruby now plays nicely with Go extensions.</p>
+<p>Ruby’s ecosystem here is basically saying: <em>why not both?</em></p>
+<h3>🚧 Heads-Up: Compatibility Changes</h3>
+<p>Ruby 4 trimmed some legacy fat, too:</p>
+<ul>
+<li>Some deprecated Ractor methods are gone.</li>
+<li>CGI library now trimmed — but core useful methods remain.</li>
+<li>Some old process APIs and backtrace clutter are cleaned up.</li>
+</ul>
+<p>So yes — do your homework before you upgrade production code.</p>
+<h3>✨ Final Thoughts — Is Ruby 4 Worth the Hype?</h3>
+<p>In a word: <strong>Absolutely.</strong></p>
+<p>Ruby 4 isn’t just another version bump — it’s a <em>statement</em>. It says:</p>
+<blockquote><em>“We care about performance, isolation, real concurrency, and developer joy and we’ll do it with a smile.”</em></blockquote>
+<blockquote>It’s like Ruby hit its glow-up phase — sharper haircut, faster reflexes, but still the same cozy hoodie and hot tea vibes. 🍵✨</blockquote>
+<blockquote>Now go forth, bundle install, upgrade bravely, and may your blocks yield true and your specs stay green. 🧪</blockquote>
+<p><em>Happy hacking with Ruby 4!</em> 🚀</p>
+<p>(And yes — check the <a href="https://www.ruby-lang.org/en/news/2025/12/25/ruby-4-0-0-released/">official release</a> notes before you unleash boxes in production 😉)</p>
+<img src="https://medium.com/_/stat?event=post.clientViewed&amp;referrerSource=full_rss&amp;postId=3bf2159dfe89" width="1" height="1" alt="">
+
+        </div>
+
+        <div class="blog-post-footer">
+          <p>
+            Read the full article on Medium:
+            <a href="https://medium.com/@deepan.ppgit/ruby-4-has-landed-and-its-bringing-gifts-3bf2159dfe89?source=rss-80461a0c324d------2" target="_blank" rel="noopener noreferrer" class="medium-link">
+              View on Medium →
+            </a>
+          </p>
+        </div>
+      </article>
+    </div>
+  </body>
+</html>

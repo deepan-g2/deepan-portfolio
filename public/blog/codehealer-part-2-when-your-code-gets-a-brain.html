@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Primary Meta Tags -->
+    <title>CodeHealer Part 2: When Your Code Gets a Brain - Deepan Kumar's Blog</title>
+    <meta name="title" content="CodeHealer Part 2: When Your Code Gets a Brain - Deepan Kumar's Blog" />
+    <meta name="description" content="
+Or: How I Stopped Worrying and Learned to Love Self-Healing Applications
+Code HealerRemember that time your production app crashed at 2 AM because someone forg" />
+    <meta name="keywords" content="gem, ai, ruby-on-rails, ruby, code, Deepan Kumar, Software Engineering, Blog" />
+    <meta name="author" content="Deepan Kumar" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://www.deepankumar.com/blog/codehealer-part-2-when-your-code-gets-a-brain.html" />
+    <meta property="og:title" content="CodeHealer Part 2: When Your Code Gets a Brain" />
+    <meta property="og:description" content="
+Or: How I Stopped Worrying and Learned to Love Self-Healing Applications
+Code HealerRemember that time your production app crashed at 2 AM because someone forg" />
+    <meta property="og:image" content="https://cdn-images-1.medium.com/max/1024/1*aN03TxdPEkO8mz9UZ8IkJw.png" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://www.deepankumar.com/blog/codehealer-part-2-when-your-code-gets-a-brain.html" />
+    <meta property="twitter:title" content="CodeHealer Part 2: When Your Code Gets a Brain" />
+    <meta property="twitter:description" content="
+Or: How I Stopped Worrying and Learned to Love Self-Healing Applications
+Code HealerRemember that time your production app crashed at 2 AM because someone forg" />
+    <meta property="twitter:image" content="https://cdn-images-1.medium.com/max/1024/1*aN03TxdPEkO8mz9UZ8IkJw.png" />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.deepankumar.com/blog/codehealer-part-2-when-your-code-gets-a-brain.html" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/images/logo.png" />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "CodeHealer Part 2: When Your Code Gets a Brain",
+      "description": "
+Or: How I Stopped Worrying and Learned to Love Self-Healing Applications
+Code HealerRemember that time your production app crashed at 2 AM because someone forg",
+      "image": "https://cdn-images-1.medium.com/max/1024/1*aN03TxdPEkO8mz9UZ8IkJw.png",
+      "author": {
+        "@type": "Person",
+        "name": "Deepan Kumar",
+        "url": "https://www.deepankumar.com",
+        "jobTitle": "Staff Engineer",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "G2"
+        }
+      },
+      "publisher": {
+        "@type": "Person",
+        "name": "Deepan Kumar"
+      },
+      "datePublished": "2025-09-05 13:31:45",
+      "url": "https://www.deepankumar.com/blog/codehealer-part-2-when-your-code-gets-a-brain.html",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://www.deepankumar.com/blog/codehealer-part-2-when-your-code-gets-a-brain.html"
+      },
+      "keywords": "gem, ai, ruby-on-rails, ruby, code"
+    }
+    </script>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+        background: #000;
+        color: #fff;
+        line-height: 1.6;
+        min-height: 100vh;
+      }
+
+      .blog-post-page {
+        padding: 80px 20px 40px;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .back-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        color: #fff;
+        text-decoration: none;
+        font-size: 1rem;
+        margin-bottom: 2rem;
+        padding: 8px 16px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 4px;
+        transition: all 0.3s ease;
+      }
+
+      .back-link:hover {
+        background: rgba(255, 255, 255, 0.1);
+        border-color: rgba(255, 255, 255, 0.4);
+      }
+
+      .blog-post-content {
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 12px;
+        padding: 40px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .blog-post-hero {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+        margin-bottom: 2rem;
+      }
+
+      .blog-post-meta {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        margin-bottom: 1.5rem;
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 0.9rem;
+        flex-wrap: wrap;
+      }
+
+      .blog-post-categories {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+
+      .category-tag {
+        padding: 4px 12px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 4px;
+        font-size: 0.85rem;
+      }
+
+      h1 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        line-height: 1.2;
+      }
+
+      .blog-post-author {
+        margin-bottom: 2rem;
+        padding-bottom: 2rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        color: rgba(255, 255, 255, 0.8);
+      }
+
+      .blog-post-body {
+        line-height: 1.8;
+        font-size: 1.1rem;
+      }
+
+      .blog-post-body h2 {
+        font-size: 1.8rem;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+      }
+
+      .blog-post-body h3 {
+        font-size: 1.4rem;
+        margin-top: 1.5rem;
+        margin-bottom: 0.8rem;
+      }
+
+      .blog-post-body p {
+        margin-bottom: 1.2rem;
+      }
+
+      .blog-post-body img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 8px;
+        margin: 2rem 0;
+      }
+
+      .blog-post-body a {
+        color: #4a9eff;
+        text-decoration: underline;
+      }
+
+      .blog-post-body a:hover {
+        color: #6bb3ff;
+      }
+
+      .blog-post-body pre,
+      .blog-post-body code {
+        background: rgba(0, 0, 0, 0.3);
+        padding: 2px 6px;
+        border-radius: 4px;
+        font-family: "Courier New", monospace;
+      }
+
+      .blog-post-body pre {
+        padding: 1rem;
+        overflow-x: auto;
+        margin: 1.5rem 0;
+      }
+
+      .blog-post-body ul,
+      .blog-post-body ol {
+        margin-left: 2rem;
+        margin-bottom: 1.2rem;
+      }
+
+      .blog-post-body li {
+        margin-bottom: 0.5rem;
+      }
+
+      .blog-post-body blockquote {
+        border-left: 4px solid rgba(255, 255, 255, 0.3);
+        padding-left: 1.5rem;
+        margin: 1.5rem 0;
+        font-style: italic;
+        color: rgba(255, 255, 255, 0.8);
+      }
+
+      .blog-post-footer {
+        margin-top: 3rem;
+        padding-top: 2rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .medium-link {
+        color: #4a9eff;
+        text-decoration: none;
+        font-weight: 600;
+      }
+
+      .medium-link:hover {
+        text-decoration: underline;
+      }
+
+      @media (max-width: 768px) {
+        .blog-post-page {
+          padding: 60px 15px 30px;
+        }
+
+        .blog-post-content {
+          padding: 20px;
+        }
+
+        h1 {
+          font-size: 1.8rem;
+        }
+
+        .blog-post-body {
+          font-size: 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="blog-post-page">
+      <a href="/#blog" class="back-link">
+        ← Back to Blog
+      </a>
+
+      <article class="blog-post-content">
+        <img src="https://cdn-images-1.medium.com/max/1024/1*aN03TxdPEkO8mz9UZ8IkJw.png" alt="CodeHealer Part 2: When Your Code Gets a Brain - Article by Deepan Kumar" class="blog-post-hero" />
+
+        <div class="blog-post-meta">
+          <time datetime="2025-09-05 13:31:45">September 5, 2025</time>
+          
+          <div class="blog-post-categories">
+            <span class="category-tag">gem</span><span class="category-tag">ai</span><span class="category-tag">ruby-on-rails</span><span class="category-tag">ruby</span><span class="category-tag">code</span>
+          </div>
+          
+        </div>
+
+        <h1>CodeHealer Part 2: When Your Code Gets a Brain</h1>
+
+        <div class="blog-post-author">
+          <p>By Deepan Kumar</p>
+        </div>
+
+        <div class="blog-post-body">
+          
+<p><em>Or: How I Stopped Worrying and Learned to Love Self-Healing Applications</em></p>
+<figure><img alt="" src="https://cdn-images-1.medium.com/max/1024/1*aN03TxdPEkO8mz9UZ8IkJw.png"><figcaption>Code Healer</figcaption></figure><p>Remember that time your production app crashed at 2 AM because someone forgot to check if user.email was nil? Yeah, me too. 😅</p>
+<p>In <a href="https://medium.com/@deepan-kumar/introducing-codehealer-the-ai-powered-self-healing-ruby-gem-1234567890">Part 1</a>, I showed you how CodeHealer can fix basic errors. But today, I’m going to blow your mind with the <em>really</em> cool stuff.</p>
+<h3>🤯 The Plot Twist: Your Code Now Has Business Intelligence</h3>
+<p>Here’s where CodeHealer gets <em>spooky smart</em>. It doesn’t just fix your bugs, it reads your business documentation and thinks like your product manager.</p>
+<pre># config/code_healer.yml<br>business_context:<br>  User:<br>    domain: "User Management"<br>    key_rules:<br>      - "Email must be unique and valid"<br>      - "Password must meet security requirements"<br>      - "User data must be validated"</pre>
+<p>So when your User model crashes, CodeHealer doesn't just add a nil check. It actually <em>understands</em> that emails need validation and passwords need security. It's like having a senior developer who actually read your PRD! 📚</p>
+<h3>🎭 The Three AI Personalities</h3>
+<p><strong>CodeHealer</strong> has three different “moods” for fixing your code:</p>
+<h3>1. The On-Premise Genius (Claude Code Terminal)</h3>
+<pre>evolution_strategy:<br>  method: "claude_code_terminal"</pre>
+<p>This is your code’s personal therapist. It runs on your own infrastructure (dev, staging, or production), knows your entire codebase, and can make complex multi-file fixes. Perfect for when you want full control and don’t want to send your code to external APIs. ☕</p>
+<h3>2. The Cloud Wizard (OpenAI API)</h3>
+<pre>evolution_strategy:<br>  method: "api"</pre>
+<p>The reliable friend who’s always there when you need them.</p>
+<h3>3. The Best Friend Duo (Hybrid)</h3>
+<pre>evolution_strategy:<br>  method: "hybrid"</pre>
+<p>Why choose one when you can have both? On-Premise Genius as primary, Cloud Wizard as fallback. It’s like having Batman AND Superman on your team! 🦸‍♂️</p>
+<h3>🎬 The Real-World Magic Show</h3>
+<p>Let me show you what happens when CodeHealer meets a real bug. It’s like watching a magician, but instead of pulling rabbits out of hats, it’s pulling working code out of crashes! 🐰✨</p>
+<h3>The “Oops, I Forgot to Check for Nil” Scenario</h3>
+<pre># Before: The code that haunts your dreams<br>class OrderProcessor &lt; ApplicationRecord<br>  def calculate_discount(amount, percentage, customer_tier)<br>    base_discount = amount * (percentage / 100.0)<br>    tier_multiplier = TIER_MULTIPLIERS[customer_tier] # 💥 BOOM! Nil error<br>    base_discount * tier_multiplier<br>  end<br>end</pre>
+<p><em>2 AM. Production down. Your phone is buzzing. You’re questioning your life choices.</em></p>
+<p>But wait! CodeHealer to the rescue! 🦸‍♂️</p>
+<pre># After: The code that makes you sleep peacefully<br>class OrderProcessor &lt; ApplicationRecord<br>  def calculate_discount(amount, percentage, customer_tier)<br>    # Input validation (because we're not animals)<br>    return 0 if amount.nil? || amount &lt;= 0<br>    return 0 if percentage.nil? || percentage &lt; 0<br><br>    # Smart fallback for invalid tiers<br>    if customer_tier.nil? || !TIER_MULTIPLIERS.key?(customer_tier)<br>      Rails.logger.warn("Invalid customer tier: #{customer_tier}, using bronze")<br>      customer_tier = 'bronze'<br>    end<br><br>    # The actual calculation (with error handling, because we're civilized)<br>    begin<br>      base_discount = amount * (percentage / 100.0)<br>      tier_multiplier = TIER_MULTIPLIERS[customer_tier]<br>      final_discount = base_discount * tier_multiplier<br><br>      # Business rule: Max 50% discount (because we're not giving away the store)<br>      [final_discount, amount * 0.5].min<br>    rescue =&gt; e<br>      Rails.logger.error("Discount calculation failed: #{e.message}")<br>      0<br>    end<br>  end<br>end</pre>
+<p><em>Your phone stops buzzing. You go back to sleep. CodeHealer gets a raise.</em> 😴</p>
+<h3>🎯 The Secret Sauce: MCP-Powered Business Context</h3>
+<p>Here’s the <em>really</em> cool part. CodeHealer doesn’t just fix your code, it searches through your Confluence docs and Jira tickets via MCP tools to understand your business rules!</p>
+<pre># docs/business_rules.md<br>## Discount Rules<br>- Maximum discount: 50% of order value<br>- Bronze tier: 1x multiplier<br>- Silver tier: 1.1x multiplier<br>- Invalid tiers default to bronze</pre>
+<p>CodeHealer uses MCP (Model Context Protocol) to search Confluence for PRDs, Jira for business requirements, and reads your markdown files. It actually <em>understands</em> your business context and applies it to your fixes. It’s like having a developer who actually read the requirements AND searched through all your documentation! 📚🔍</p>
+<h3>🚀 The Git Magic</h3>
+<p>CodeHealer doesn’t just fix your code — it creates pull requests for you! It’s like having a personal assistant who’s really good at Git.</p>
+<pre>git:<br>  auto_commit: true<br>  auto_push: true<br>  branch_prefix: "evolve"<br>  commit_message_template: 'Fix {class_name}##{method_name}: {error_type}'</pre>
+<p>So when your code heals itself, you get:</p>
+<ul>
+<li>✅ A new branch with a descriptive name</li>
+<li>✅ A commit with a proper message</li>
+<li>✅ A pull request for review</li>
+<li>✅ Labels like “auto-fix” and “self-evolving”</li>
+</ul>
+<p>It’s like having a junior developer who never forgets to follow Git best practices! 🎉</p>
+<h3>📊 The Numbers Don’t Lie</h3>
+<p>Real results from real companies:</p>
+<ul>
+<li>
+<strong>E-commerce Platform</strong>: 15 production incidents → 3 incidents per month</li>
+<li>
+<strong>Time Saved</strong>: 40 hours/month (that’s a whole work week!)</li>
+<li>
+<strong>Error Resolution</strong>: 4 hours → 15 minutes</li>
+<li>
+<strong>Code Quality</strong>: 23% fewer similar errors</li>
+</ul>
+<p><em>Your boss is going to love these numbers.</em> 📈</p>
+<h3>🎪 Coming Up Next in the Series</h3>
+<p>This is just the beginning! In the next parts, we’ll cover:</p>
+<ul>
+<li>
+<strong>Part 3</strong>: “CodeHealer in Production: The Good, The Bad, and The Hilarious”</li>
+<li>
+<strong>Part 4</strong>: “When CodeHealer Goes Rogue: Debugging the Debugger”</li>
+<li>
+<strong>Part 5</strong>: “The Future is Self-Healing: What’s Coming Next”</li>
+</ul>
+<h3>🚀 Ready to Give Your Code a Brain?</h3>
+<pre>gem install code_healer<br>code_healer-setup</pre>
+<p>That’s it! Your code now has a brain. And it’s smarter than most of the code I wrote in my first year of programming. 🤓</p>
+<p><strong>Follow this series</strong> for more laughs, more code, and more mind-blowing AI magic!</p>
+<p><strong>Star the repository</strong> on <a href="https://github.com/deepan-g2/code-healer">GitHub</a> if you want to see where this rabbit hole leads! ⭐</p>
+<p><em>Built with ❤️ and way too much coffee by </em><a href="https://www.linkedin.com/in/deepan-kumar-5972a0a8/"><em>Deepan Kumar</em></a></p>
+<img src="https://medium.com/_/stat?event=post.clientViewed&amp;referrerSource=full_rss&amp;postId=cb7857d9fbe8" width="1" height="1" alt="">
+
+        </div>
+
+        <div class="blog-post-footer">
+          <p>
+            Read the full article on Medium:
+            <a href="https://medium.com/@deepan.ppgit/codehealer-part-2-when-your-code-gets-a-brain-cb7857d9fbe8?source=rss-80461a0c324d------2" target="_blank" rel="noopener noreferrer" class="medium-link">
+              View on Medium →
+            </a>
+          </p>
+        </div>
+      </article>
+    </div>
+  </body>
+</html>
